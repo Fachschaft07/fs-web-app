@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+	<title>HM - Fachschaft 07</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="HM - Fachschaft 07">
+
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"  media="screen,projection">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="styles/styles.css">
+	<script type="text/javascript" src="js/init.js"></script>
+	
+	<script>
+		$( document ).ready(new function() {
+			$(".dropdown-button").dropdown();
+		});
+	
+		function load() {
+			var date = new Date();
+			$('ul.tabs').tabs('select_tab', date.getDay());
+			
+			$.getJSON( "http://fs.cs.hm.edu/rest/api/1/lostandfound", function( data ) {
+				$("#lostfound").empty();
+				var currDate;
+				var list = "";
+				$.each(data, function( index, item) {
+					var date = new Date(item.date);
+					if(currDate == null || date.getDate() != currDate.getDate()) {
+						currDate = date;
+						list += "<li class='collection-header'><b>"+date.toLocaleDateString()+"</b></li>";
+					}
+					list += "<li class='collection-item'>"+item.subject+"</li>";
+				});
+				
+				$(list).appendTo("#lostfound");
+			});
+		};
+	</script>
+  </head>
+  <body onLoad="load()">
+	<!-- Navbar goes here -->
+	<div class="navbar-fixed">
+		<ul id="dropdown_more" class="dropdown-content">
+			<li><a href="TimetableEditor.html">Bearbeiten</a></li>
+		</ul>
+		<nav class="red">
+			<div class="nav-wrapper">
+			  <a href="#!" class="brand-logo" id="logo-container" style="padding-left: 0.5em;">HM - Fachschaft 07</a>
+			  
+			  <ul class="right hide-on-med-and-down">
+				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Home" href="index.html"><i class="material-icons" role="presentation">home</i></a></li>
+				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Schwarzes Brett" href="Blackboard.html"><i class="material-icons" role="presentation">assignment</i></a></li>
+				<li class="active"><a class="mdl-navigation__link tooltipped" data-tooltip="Stundenplan" href="#!"><i class="material-icons" role="presentation">view_week</i></a></li>
+				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Raumsuche" href="Roomsearch.html"><i class="material-icons" role="presentation">search</i></a></li>
+				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Fundsachen" href="Lostfound.html"><i class="material-icons" role="presentation">favorite</i></a></li>
+				<li class="divider">
+				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Neuigkeiten" href="News.html"><i class="material-icons" role="presentation">feedback</i></a></li>
+				<li class="divider">
+				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Mensa" href="Mensa.html"><i class="material-icons" role="presentation">restaurant_menu</i></a></li>
+				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Jobs" href="Jobs.html"><i class="material-icons" role="presentation">work</i></a></li>
+				<li><a class="mdl-navigation__link tooltipped" data-tooltip="MVV" href="Mvv.html"><i class="material-icons" role="presentation">directions_transit</i></a></li>
+			  </ul>
+			  
+			  <ul class="right hide-on-large-only">
+				<li><a class="dropdown-button" href="#!" data-activates="dropdown_more"><i class="material-icons">more_vert</i></a></li>
+			  </ul>
+			  
+			  <ul class="side-nav" id="nav-mobile">
+			  
+				<li><a class="mdl-navigation__link" href="index.html"><i class="material-icons left">home</i>Home</a></li>
+				<li><a class="mdl-navigation__link" href="Blackboard.html"><i class="material-icons left">assignment</i>Schwarzes Brett</a></li>
+				<li class="active"><a class="mdl-navigation__link" href="#!"><i class="material-icons left">view_week</i>Stundenplan</a></li>
+				<li><a class="mdl-navigation__link" href="Roomsearch.html"><i class="material-icons left">search</i>Raumsuche</a></li>
+				<li><a class="mdl-navigation__link" href="Lostfound.html"><i class="material-icons left">favorite</i>Fundsachen</a></li>
+				<li class="divider"></li>
+				<li><a class="mdl-navigation__link" href="News.html"><i class="material-icons left">feedback</i>Neuigkeiten</a></li>
+				<li class="divider"></li>
+				<li><a class="mdl-navigation__link" href="Mensa.html"><i class="material-icons left">restaurant_menu</i>Mensa</a></li>
+				<li><a class="mdl-navigation__link" href="Jobs.html"><i class="material-icons left">work</i>Jobs</a></li>
+				<li><a class="mdl-navigation__link" href="Mvv.html"><i class="material-icons left">directions_transit</i>MVV</a></li>
+				<li class="divider"></li>
+				<li><a class="mdl-navigation__link" href="#!"><i class="material-icons left">info</i>Info</a></li>
+				<li><a class="mdl-navigation__link" href="#!"><i class="material-icons left">help</i>Hilfe</a></li>
+				<li><a class="mdl-navigation__link" href="#!">Impressum</a></li>
+			  </ul>
+			  
+			  <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+			</div>
+		</nav>
+	</div>
+
+    <!-- Page Layout here -->
+	<div class="container">
+		<h3 class="center">Stundenplan</h3>
+		
+		<!-- Timetable for Desktop -->
+		<div class="row hide-on-med-and-down">
+			<table class="col s12 flow-text">
+				<thead>
+				  <tr>
+					  <th class="center">Zeit</th>
+					  <th class="center">Montag</th>
+					  <th class="center">Dienstag</th>
+					  <th class="center">Mittwoch</th>
+					  <th class="center">Donnerstag</th>
+					  <th class="center">Freitag</th>
+				  </tr>
+				</thead>
+
+				<tbody>
+				  <tr>
+					<th class="center">08:15 - 09:45</th>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+				  </tr>
+				  <tr>
+					<th class="center">10:00 - 11:30</th>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+				  </tr>
+				  <tr>
+					<th class="center">11:45 - 13:15</th>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+				  </tr>
+				  <tr>
+					<th class="center">13:30 - 15:00</th>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+				  </tr>
+				  <tr>
+					<th class="center">15:15 - 16:45</th>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+				  </tr>
+				  <tr>
+					<th class="center">17:00 - 18:30</th>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+				  </tr>
+				  <tr>
+					<th class="center">18:45 - 20:15</th>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+				  </tr>
+				</tbody>
+			</table>
+			
+			<div class="fixed-action-btn" style="top: 70px; right: 24px;">
+				<a class="btn-floating btn-large waves-effect waves-light orange" href="TimetableEditor.html"><i class="material-icons">mode_edit</i></a>
+			</div>
+		</div>
+		
+		<!-- Timetable for Tablets -->
+		<div class="row hide-on-small-only hide-on-large-only">
+			<table class="col s12 flow-text">
+				<thead>
+				  <tr>
+					  <th class="center">Zeit</th>
+					  <th class="center">Montag</th>
+					  <th class="center">Dienstag</th>
+					  <th class="center">Mittwoch</th>
+					  <th class="center">Donnerstag</th>
+					  <th class="center">Freitag</th>
+				  </tr>
+				</thead>
+
+				<tbody>
+				  <tr>
+					<th class="center">08:15 - 09:45</th>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+				  </tr>
+				  <tr>
+					<th class="center">10:00 - 11:30</th>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+				  </tr>
+				  <tr>
+					<th class="center">11:45 - 13:15</th>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+				  </tr>
+				  <tr>
+					<th class="center">13:30 - 15:00</th>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+				  </tr>
+				  <tr>
+					<th class="center">15:15 - 16:45</th>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+				  </tr>
+				  <tr>
+					<th class="center">17:00 - 18:30</th>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+				  </tr>
+				  <tr>
+					<th class="center">18:45 - 20:15</th>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+					<td class="center"></td>
+				  </tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<!-- Timetable for Smartphones -->
+		<div class="row hide-on-med-and-up">
+			<div class="col s12 flow-text">
+			  <ul class="tabs">
+				<li class="tab col s3"><a class="active" href="#1">Mo</a></li>
+				<li class="tab col s3"><a href="#2">Di</a></li>
+				<li class="tab col s3"><a href="#3">Mi</a></li>
+				<li class="tab col s3"><a href="#4">Do</a></li>
+				<li class="tab col s3"><a href="#5">Fr</a></li>
+			  </ul>
+			</div>
+			<div id="1" class="col s12">
+				<table class="flow-text">
+					<tbody>
+					  <tr>
+						<th class="center">08:15 - 09:45</th>
+						<td class="center orange">Softwareentwicklung I<br><br>R1.007</td>
+					  </tr>
+					  <tr>
+						<th class="center">10:00 - 11:30</th>
+						<td class="center green">Betriebssysteme I<br><br>R0.009</td>
+					  </tr>
+					  <tr>
+						<th class="center">11:45 - 13:15</th>
+						<td class="center"></td>
+					  </tr>
+					  <tr>
+						<th class="center">13:30 - 15:00</th>
+						<td class="center"></td>
+					  </tr>
+					  <tr>
+						<th class="center">15:15 - 16:45</th>
+						<td class="center"></td>
+					  </tr>
+					  <tr>
+						<th class="center">17:00 - 18:30</th>
+						<td class="center"></td>
+					  </tr>
+					  <tr>
+						<th class="center">18:45 - 20:15</th>
+						<td class="center"></td>
+					  </tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="2" class="col s12">
+				<table class="flow-text">
+					<tbody>
+					  <tr>
+						<th class="center">08:15 - 09:45</th>
+						<td class="center orange">Softwareentwicklung I<br><br>R1.007</td>
+					  </tr>
+					  <tr>
+						<th class="center">10:00 - 11:30</th>
+						<td class="center green">Betriebssysteme I<br><br>R0.009</td>
+					  </tr>
+					  <tr>
+						<th class="center">11:45 - 13:15</th>
+						<td class="center"></td>
+					  </tr>
+					  <tr>
+						<th class="center">13:30 - 15:00</th>
+						<td class="center"></td>
+					  </tr>
+					  <tr>
+						<th class="center">15:15 - 16:45</th>
+						<td class="center"></td>
+					  </tr>
+					  <tr>
+						<th class="center">17:00 - 18:30</th>
+						<td class="center"></td>
+					  </tr>
+					  <tr>
+						<th class="center">18:45 - 20:15</th>
+						<td class="center"></td>
+					  </tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="3" class="col s12">
+				<table class="flow-text">
+					<tbody>
+					  <tr>
+						<th class="center">08:15 - 09:45</th>
+						<td class="center orange">Softwareentwicklung I<br><br>R1.007</td>
+					  </tr>
+					  <tr>
+						<th class="center">10:00 - 11:30</th>
+						<td class="center green">Betriebssysteme I<br><br>R0.009</td>
+					  </tr>
+					  <tr>
+						<th class="center">11:45 - 13:15</th>
+						<td class="center"></td>
+					  </tr>
+					  <tr>
+						<th class="center">13:30 - 15:00</th>
+						<td class="center"></td>
+					  </tr>
+					  <tr>
+						<th class="center">15:15 - 16:45</th>
+						<td class="center"></td>
+					  </tr>
+					  <tr>
+						<th class="center">17:00 - 18:30</th>
+						<td class="center"></td>
+					  </tr>
+					  <tr>
+						<th class="center">18:45 - 20:15</th>
+						<td class="center"></td>
+					  </tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="4" class="col s12">
+				<table class="flow-text">
+					<tbody>
+					  <tr>
+						<th class="center">08:15 - 09:45</th>
+						<td class="center orange">Softwareentwicklung I<br><br>R1.007</td>
+					  </tr>
+					  <tr>
+						<th class="center">10:00 - 11:30</th>
+						<td class="center green">Betriebssysteme I<br><br>R0.009</td>
+					  </tr>
+					  <tr>
+						<th class="center">11:45 - 13:15</th>
+						<td class="center"></td>
+					  </tr>
+					  <tr>
+						<th class="center">13:30 - 15:00</th>
+						<td class="center"></td>
+					  </tr>
+					  <tr>
+						<th class="center">15:15 - 16:45</th>
+						<td class="center"></td>
+					  </tr>
+					  <tr>
+						<th class="center">17:00 - 18:30</th>
+						<td class="center"></td>
+					  </tr>
+					  <tr>
+						<th class="center">18:45 - 20:15</th>
+						<td class="center"></td>
+					  </tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="5" class="col s12">
+				<table class="flow-text">
+					<tbody>
+					  <tr>
+						<th class="center">08:15 - 09:45</th>
+						<td class="center orange">Softwareentwicklung I<br><br>R1.007</td>
+					  </tr>
+					  <tr>
+						<th class="center">10:00 - 11:30</th>
+						<td class="center"></td>
+					  </tr>
+					  <tr>
+						<th class="center">11:45 - 13:15</th>
+						<td class="center"></td>
+					  </tr>
+					  <tr>
+						<th class="center">13:30 - 15:00</th>
+						<td class="center green">Betriebssysteme I<br><br>R0.009</td>
+					  </tr>
+					  <tr>
+						<th class="center">15:15 - 16:45</th>
+						<td class="center"></td>
+					  </tr>
+					  <tr>
+						<th class="center">17:00 - 18:30</th>
+						<td class="center"></td>
+					  </tr>
+					  <tr>
+						<th class="center">18:45 - 20:15</th>
+						<td class="center"></td>
+					  </tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+			
+			
+	<footer class="page-footer grey darken-1 hide-on-med-and-down">
+	  <div class="container">
+		<div class="row">
+		  <div class="col l6 s12">
+			<h5 class="white-text">Links</h5>
+			<ul>
+			  <li><a class="grey-text text-lighten-3" href="Info.html">Info</a></li>
+			</ul>
+		  </div>
+		  <div class="col l6 s12">
+			<h5 class="white-text">Community</h5>
+			<ul>
+			  <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/groups/fs.cs.hm" target="_blank">Facebook</a></li>
+			</ul>
+		  </div>
+		</div>
+	  </div>
+	  <div class="footer-copyright grey darken-3">
+		<div class="container">
+		© 2016 by Fachschaft 07
+		<a class="grey-text text-lighten-4 right" href="#!">Impressum</a>
+		</div>
+	  </div>
+	</footer>
+  </body>
+</html>

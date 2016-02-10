@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+	<title>HM - Fachschaft 07</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="HM - Fachschaft 07">
+
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"  media="screen,projection">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="styles/styles.css">
+	<script type="text/javascript" src="js/init.js"></script>
+	
+	<script>
+		var weekday = new Array(7);
+		weekday[0]=  "SUNDAY";
+		weekday[1] = "MONDAY";
+		weekday[2] = "TUESDAY";
+		weekday[3] = "WEDNESDAY";
+		weekday[4] = "THURSDAY";
+		weekday[5] = "FRIDAY";
+		weekday[6] = "SATURDAY";
+		
+		var selectedWeekday;
+		var selectedTimeHours;
+		var selectedTimeMinutes;
+
+		function load() {
+			var date = new Date();
+			selectedWeekday = date.getDay();
+			
+			// Select current day of week
+			$("#dayofweek option[value='"+selectedWeekday+"'").prop("selected", "selected");
+			
+			var time1 = createDate(0, 0);
+			var time2 = createDate(10, 0);
+			var time3 = createDate(11, 45);
+			var time4 = createDate(13, 30);
+			var time5 = createDate(15, 15);
+			var time6 = createDate(17, 0);
+			var time7 = createDate(18, 45);
+			
+			// Select current time range
+			if(time1.getTime() < date.getTime() && time2.getTime() > date.getTime()) {
+				$("#time option[value='1'").prop("selected", "selected");
+			} else if(time2.getTime() < date.getTime() && time3.getTime() > date.getTime()) {
+				$("#time option[value='2'").prop("selected", "selected");
+			} else if(time3.getTime() < date.getTime() && time4.getTime() > date.getTime()) {
+				$("#time option[value='3'").prop("selected", "selected");
+			} else if(time4.getTime() < date.getTime() && time5.getTime() > date.getTime()) {
+				$("#time option[value='4'").prop("selected", "selected");
+			} else if(time5.getTime() < date.getTime() && time6.getTime() > date.getTime()) {
+				$("#time option[value='5'").prop("selected", "selected");
+			} else if(time6.getTime() < date.getTime() && time7.getTime() > date.getTime()) {
+				$("#time option[value='6'").prop("selected", "selected");
+			} else {
+				$("#time option[value='7'").prop("selected", "selected");
+			}
+			
+			// Select the items in the dropdowns
+			$('select').material_select();
+			
+			selectedTimeHours = date.getHours();
+			selectedTimeMinutes = date.getMinutes();
+			search();
+		}
+		
+		function createDate(hours, minutes) {
+			var time = new Date();
+			time.setHours(hours);
+			time.setMinutes(minutes);
+			return time;
+		}
+		
+		function search() {
+			var day = weekday[selectedWeekday];
+			var hour = selectedTimeHours;
+			var minute = selectedTimeMinutes;
+			$.getJSON( "http://fs.cs.hm.edu/rest/api/1/room?type=ALL&day="+day+"&hour="+hour+"&minute="+minute, function( data ) {
+				$("#rooms").empty();
+				var table = "<table style='width: 100%;'>"+
+					"<thead><tr>"+
+					"<th>Raum</th>"+
+					"<th>Frei bis</th>"+
+					"<th class='center'>Typ</th>"+
+					"</tr><thead><tbody>";
+				$.each(data, function( index, item) {
+					var date = new Date();
+					date.setHours(item.hour);
+					date.setMinutes(item.minute);
+					date.setSeconds(0);
+					table += "<tr><td>"+item.name+"</td>"+
+						"<td>"+date.toLocaleTimeString()+"</td>"+
+						"<td class='center'>"+item.roomType+"</td></tr>";
+				});
+				table += "</tbody></table>";
+				
+				$(table).appendTo("#rooms");
+			});
+		};
+	</script>
+  </head>
+  <body onLoad="load()">
+	<!-- Navbar goes here -->
+	<div class="navbar-fixed">
+		<nav class="red">
+			<div class="nav-wrapper">
+			  <a href="#!" class="brand-logo" id="logo-container" style="padding-left: 0.5em;">HM - Fachschaft 07</a>
+			  
+			  <ul class="right hide-on-med-and-down">
+				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Home" href="index.html"><i class="material-icons" role="presentation">home</i></a></li>
+				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Schwarzes Brett" href="Blackboard.html"><i class="material-icons" role="presentation">assignment</i></a></li>
+				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Stundenplan" href="Timetable.html"><i class="material-icons" role="presentation">view_week</i></a></li>
+				<li class="active"><a class="mdl-navigation__link tooltipped" data-tooltip="Raumsuche" href="#!"><i class="material-icons" role="presentation">search</i></a></li>
+				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Fundsachen" href="Lostfound.html"><i class="material-icons" role="presentation">favorite</i></a></li>
+				<li class="divider">
+				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Neuigkeiten" href="News.html"><i class="material-icons" role="presentation">feedback</i></a></li>
+				<li class="divider">
+				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Mensa" href="Mensa.html"><i class="material-icons" role="presentation">restaurant_menu</i></a></li>
+				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Jobs" href="Jobs.html"><i class="material-icons" role="presentation">work</i></a></li>
+				<li><a class="mdl-navigation__link tooltipped" data-tooltip="MVV" href="Mvv.html"><i class="material-icons" role="presentation">directions_transit</i></a></li>
+			  </ul>
+			  
+			  <ul class="side-nav" id="nav-mobile">
+			  
+				<li><a class="mdl-navigation__link" href="index.html"><i class="material-icons left">home</i>Home</a></li>
+				<li><a class="mdl-navigation__link" href="Blackboard.html"><i class="material-icons left">assignment</i>Schwarzes Brett</a></li>
+				<li><a class="mdl-navigation__link" href="Timetable.html"><i class="material-icons left">view_week</i>Stundenplan</a></li>
+				<li class="active"><a class="mdl-navigation__link" href="#!"><i class="material-icons left">search</i>Raumsuche</a></li>
+				<li><a class="mdl-navigation__link" href="Lostfound.html"><i class="material-icons left">favorite</i>Fundsachen</a></li>
+				<li class="divider"></li>
+				<li><a class="mdl-navigation__link" href="News.html"><i class="material-icons left">feedback</i>Neuigkeiten</a></li>
+				<li class="divider"></li>
+				<li><a class="mdl-navigation__link" href="Mensa.html"><i class="material-icons left">restaurant_menu</i>Mensa</a></li>
+				<li><a class="mdl-navigation__link" href="Jobs.html"><i class="material-icons left">work</i>Jobs</a></li>
+				<li><a class="mdl-navigation__link" href="Mvv.html"><i class="material-icons left">directions_transit</i>MVV</a></li>
+				<li class="divider"></li>
+				<li><a class="mdl-navigation__link" href="#!"><i class="material-icons left">info</i>Info</a></li>
+				<li><a class="mdl-navigation__link" href="#!"><i class="material-icons left">help</i>Hilfe</a></li>
+				<li><a class="mdl-navigation__link" href="#!">Impressum</a></li>
+			  </ul>
+			  
+			  <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+			</div>
+		</nav>
+	</div>
+
+    <!-- Page Layout here -->
+	<div class="container">
+		<h3 class="center">Raumsuche</h3>
+	
+		<div class="row">
+			<div class="col s12 m8 offset-m2 l6 offset-l3">
+				<div class="card-panel" style="height: 7em;">
+				  <div class="input-field col s6">
+					<select id="dayofweek">
+					  <option value="1" selected>Montag</option>
+					  <option value="2">Dienstag</option>
+					  <option value="3">Mittwoch</option>
+					  <option value="4">Donnerstag</option>
+					  <option value="5">Freitag</option>
+					  <option value="6">Samstag</option>
+					  <option value="0">Sonntag</option>
+					</select>
+					<label>Wochentag</label>
+					<script>
+						$("#dayofweek").change(function() {
+							selectedWeekday = $("#dayofweek option:selected").val();
+							search();
+						});
+					</script>
+				  </div>
+				  <div class="input-field col s6">
+					<select id="time">
+					  <option value="1" selected>08:15 - 09:45</option>
+					  <option value="2">10:00 - 11:30</option>
+					  <option value="3">11:45 - 13:15</option>
+					  <option value="4">13:30 - 15:00</option>
+					  <option value="5">15:15 - 16:45</option>
+					  <option value="6">17:00 - 18:30</option>
+					  <option value="7">18:45 - 20:15</option>
+					</select>
+					<label>Uhrzeit</label>
+					<script>
+						$("#time").change(function() {
+							selectedTimeHours = $("#time option:selected").text().substring(0, 2);
+							selectedTimeMinutes = $("#time option:selected").text().substring(3, 5);
+							search();
+						});
+					</script>
+				  </div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col s12 m8 offset-m2 l6 offset-l3">
+				<div class="flow-text" id="rooms">
+				</div>
+			</div>
+		</div>
+	</div>
+			
+			
+	<footer class="page-footer grey darken-1 hide-on-med-and-down">
+	  <div class="container">
+		<div class="row">
+		  <div class="col l6 s12">
+			<h5 class="white-text">Links</h5>
+			<ul>
+			  <li><a class="grey-text text-lighten-3" href="Info.html">Info</a></li>
+			</ul>
+		  </div>
+		  <div class="col l6 s12">
+			<h5 class="white-text">Community</h5>
+			<ul>
+			  <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/groups/fs.cs.hm" target="_blank">Facebook</a></li>
+			</ul>
+		  </div>
+		</div>
+	  </div>
+	  <div class="footer-copyright grey darken-3">
+		<div class="container">
+		© 2016 by Fachschaft 07
+		<a class="grey-text text-lighten-4 right" href="#!">Impressum</a>
+		</div>
+	  </div>
+	</footer>
+  </body>
+</html>

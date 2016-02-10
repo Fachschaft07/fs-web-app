@@ -1,0 +1,105 @@
+<div class="container">
+    <div class="row" id="cards">
+       
+        <!-- BLACKBOARD -->
+        <div class="col s12 m6">
+            <div class="card hoverable">
+                <div class="card-content ">
+                    <span class="card-title">Schwarzes Brett</span>
+                    <ul class="flow-text" ng-repeat="item in home.blackboard" ng-if="home.blackboard.length">
+                        <li>{{ item.subject }}</li>
+                    </ul>
+                    <ul class="flow-text" ng-if="!home.blackboard.length">
+                        <li>Keine neuen Meldungen</li>
+                    </ul>
+                </div>
+                <div class="card-action">
+                  <a href="Blackboard.html">Mehr anzeigen</a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- MENSA -->
+        <div class="col s12 m6">
+            <div class="card hoverable green darken-2">
+                <div class="card-content white-text">
+                    <span class="card-title">Mensa</span>
+                    <ul class="flow-text" ng-repeat="item in home.mensaMenu" ng-if="home.mensaMenu.length"><!-- | today -->
+                        <li>{{ item.name }}</li>
+                    </ul>
+                </div>
+                <div class="card-action">
+                  <a href="Mensa.html">Mehr anzeigen</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MVV - Lothstraße -->
+        <div class="col s12 m6">
+            <div class="card hoverable blue darken-2">
+                <div class="card-content white-text">
+                    <span class="card-title">MVV - Lothstraße</span>
+                    <div class="flow-text">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Linie</th>
+                                    <th>Richtung</th>
+                                    <th>Abfahrt</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="item in home.trafficLothstr | limitTo:4">
+                                <tr>
+                                    <td>{{ item.line }}</td>
+                                    <td>{{ item.destination }}</td>
+                                    <td>{{ item.departure }}</td><!-- | filter -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MVV - Pasing -->
+        <div class="col s12 m6">
+            <div class="card hoverable blue darken-2">
+                <div class="card-content white-text">
+                    <span class="card-title">MVV - Pasing</span>
+                    <div class="flow-text">
+                        <table style='width: 100%;'>
+                            <thead>
+                                <tr>
+                                    <th>Linie</th>
+                                    <th>Richtung</th>
+                                    <th>Abfahrt</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="item in home.trafficPasing | limitTo:4">
+                                <tr>
+                                    <td>{{ item.line }}</td>
+                                    <td>{{ item.destination }}</td>
+                                    <td>{{ item.departure }}</td><!-- | filter -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOLIDAYS -->
+        <div class="col s12 m6">
+            <div class="card hoverable yellow darken-4">
+                <div class="card-content white-text">
+                    <span class="card-title">Ferien</span>
+                    <div class="flow-text">
+                        {{ home.nextHoliday.name }} in {{ home.nextHoliday.start }} Tagen
+                    </div>
+                </div>
+            </div>
+        </div>
+			
+    </div>
+</div>

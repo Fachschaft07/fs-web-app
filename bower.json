@@ -1,0 +1,25 @@
+{
+  "name": "fs-web-app",
+  "homepage": "https://github.com/Fachschaft07/fs-web-app",
+  "authors": [
+    "Benjamin Arnold <barnold@hm.edu>"
+  ],
+  "description": "The official Web Application of the faculty 07 of the University of Applied Sciences Munich",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "Materialize": "materialize#^0.97.5",
+    "jquery": "^2.2.0",
+    "angular-ui-router": "^0.2.18"
+  }
+}

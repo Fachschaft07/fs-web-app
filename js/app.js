@@ -10,11 +10,13 @@
         'fsApp.navigation',
         'fsApp.footer',
         'fsApp.home',
+        'fsApp.blackboard',
         
         // Directives
         
         // Services
-        'fsApp.services'
+        'fsApp.services',
+        'fsApp.filter'
         ])
         .config(FsAppConfig);
     
@@ -38,18 +40,20 @@
                         templateUrl: "components/footer/footer.html",
                         controller: "FooterController as footer"}
                 }
+            })
+            .state('blackboard', {
+                url: "/blackboard",
+                views: {
+                    "navigation": { 
+                        templateUrl: "components/navigation/navigation.html",
+                        controller: "NavController as nav" },
+                    "content": { 
+                        templateUrl: "components/blackboard/blackboard.html",
+                        controller: "BlackboardController as blackboard"},
+                    "footer": { 
+                        templateUrl: "components/footer/footer.html",
+                        controller: "FooterController as footer"}
+                }
             });
-        
-        $('.button-collapse').sideNav({
-          menuWidth: 300, // Default is 240
-          edge: 'left', // Choose the horizontal origin
-          closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-        });
-
-        $(document).ready(function(){
-            $('.collapsible').collapsible({
-              accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-            });
-        });
     }
 })();

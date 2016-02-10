@@ -13,6 +13,53 @@
         vm.trafficPasing = [];
         vm.holidays = [];
         
+        vm.mensaTest = [
+    {
+        "date": 1443650400000,
+        "type": "VEGAN",
+        "name": "Buntes Pfannengemüse   ",
+        "additives": []
+    },
+    {
+        "date": 1443650400000,
+        "type": "MEAT",
+        "name": "Münchner Krustenbraten mit Biersauce    ",
+        "additives": [
+            "PIG",
+            "ALCOHOL"
+        ]
+    },
+    {
+        "date": 1443650400000,
+        "type": "MEAT",
+        "name": "Bio-Chili con carne   ",
+        "additives": [
+            "BEEF",
+            "PIG"
+        ]
+    },
+    {
+        "date": 1443736800000,
+        "type": "VEGAN",
+        "name": "Indisches Linsencurry   ",
+        "additives": []
+    },
+    {
+        "date": 1443736800000,
+        "type": "MEATLESS",
+        "name": "Dampfnudel mit Vanillesauce   ",
+        "additives": []
+    },
+    {
+        "date": 1443736800000,
+        "type": "MEAT",
+        "name": "Seelachsfilet (MSC) Müllerin, Zitronensauce   ",
+        "additives": [
+            "DYE"
+        ]
+    }
+];
+        
         init();
         
         //////////////////////////////////////////////////////////////
@@ -34,8 +81,6 @@
             // Get all new entries since 24h
             dataFactory.getBlackboard({ since: yesterday.getTime() })
                 .then(function(result) {
-                
-                    console.log(result.data);
                     vm.blackboard = result.data;
             })
         }
@@ -76,8 +121,6 @@
         function nextHoliday(data) {
             var today = new Date();
             for (var i = 0; i < data.length; i++) {
-                console.log('data[' + i + ']');
-                console.log(data[i]);
                 var holidayStart = new Date(data[i].start);
                 if (holidayStart.getTime() >= today.getTime()) {
                     console.log('in if');
@@ -85,10 +128,6 @@
                     vm.nextHoliday = data[i];
                     break;
                 }
-                /*if(holidayStart.getTime() >= today.getTime()) {
-                var dayDiff = Math.round((holidayStart.getTime() - today.getTime()) / 1000 / 60 / 60 / 24);
-                $("#holidays").append(item.name + " in " + dayDiff + " Tagen");
-                return false;*/
             }
         }
     }

@@ -1,254 +1,64 @@
 <!DOCTYPE html>
-<html lang="de">
-  <head>
-	<title>HM - Fachschaft 07</title>
-	<meta charset="utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
+<html>
+    <head>
+        <title>HM - Fachschaft 07</title>
+     
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="utf-8"/>
+        
+        <!-- Add to homescreen for Chrome on Android -->
+        <meta name="mobile-web-app-capable" content="yes">
+        
+        <!-- Add to homescreen for Safari on iOS -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="HM - Fachschaft 07">
+        
+        
+        <!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="bower_components/Materialize/dist/css/materialize.min.css"  media="screen,projection"/>
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+        
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="styles/style.css">
 
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="HM - Fachschaft 07">
 
-	
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"  media="screen,projection">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="styles/styles.css">
-	<script type="text/javascript" src="js/init.js"></script>
-  </head>
-  <body>
-	<!-- Navbar goes here -->
-	<div class="navbar-fixed">
-		<nav class="red">
-			<div class="nav-wrapper">
-			  <a href="#!" class="brand-logo" id="logo-container" style="padding-left: 0.5em;">HM - Fachschaft 07</a>
-			  
-			  <ul class="right hide-on-med-and-down">
-				<li class="active"><a class="mdl-navigation__link tooltipped" data-tooltip="Home" href="#"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i></a></li>
-				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Schwarzes Brett" href="Blackboard.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">assignment</i></a></li>
-				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Stundenplan" href="Timetable.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">view_week</i></a></li>
-				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Raumsuche" href="Roomsearch.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">search</i></a></li>
-				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Fundsachen" href="Lostfound.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">favorite</i></a></li>
-				<li class="divider">
-				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Neuigkeiten" href="News.html"><i class="material-icons" role="presentation">feedback</i></a></li>
-				<li class="divider">
-				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Mensa" href="Mensa.html"><i class="material-icons" role="presentation">restaurant_menu</i></a></li>
-				<li><a class="mdl-navigation__link tooltipped" data-tooltip="Jobs" href="Jobs.html"><i class="material-icons" role="presentation">work</i></a></li>
-				<li><a class="mdl-navigation__link tooltipped" data-tooltip="MVV" href="Mvv.html"><i class="material-icons" role="presentation">directions_transit</i></a></li>
-			  </ul>
-			  
-			  <ul class="side-nav" id="nav-mobile">
-				<li class="active"><a class="mdl-navigation__link" href="#!"><i class="material-icons left">home</i>Home</a></li>
-				<li><a class="mdl-navigation__link" href="Blackboard.html"><i class="material-icons left">assignment</i>Schwarzes Brett</a></li>
-				<li><a class="mdl-navigation__link" href="Timetable.html"><i class="material-icons left">view_week</i>Stundenplan</a></li>
-				<li><a class="mdl-navigation__link" href="Roomsearch.html"><i class="material-icons left">search</i>Raumsuche</a></li>
-				<li><a class="mdl-navigation__link" href="Lostfound.html"><i class="material-icons left">favorite</i>Fundsachen</a></li>
-				<li class="divider"></li>
-				<li><a class="mdl-navigation__link" href="News.html"><i class="material-icons left">feedback</i>Neuigkeiten</a></li>
-				<li class="divider"></li>
-				<li><a class="mdl-navigation__link" href="Mensa.html"><i class="material-icons left">restaurant_menu</i>Mensa</a></li>
-				<li><a class="mdl-navigation__link" href="Jobs.html"><i class="material-icons left">work</i>Jobs</a></li>
-				<li><a class="mdl-navigation__link" href="Mvv.html"><i class="material-icons left">directions_transit</i>MVV</a></li>
-				<li class="divider"></li>
-				<li><a class="mdl-navigation__link" href="Info.html"><i class="material-icons left">info</i>Info</a></li>
-				<li><a class="mdl-navigation__link" href="#!"><i class="material-icons left">help</i>Hilfe</a></li>
-				<li><a class="mdl-navigation__link" href="#!">Impressum</a></li>
-			  </ul>
-			  
-			  <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-			</div>
-		</nav>
-	</div>
+    </head>    
+    
 
-    <!-- Page Layout here -->
-	<div class="container">
-		<div class="row" id="cards">
-				
-			<!-- BLACKBOARD -->
-			<div class="col s12 m6" id="blackboard">
-				<div class="card hoverable">
-					<div class="card-content ">
-						<span class="card-title">Schwarzes Brett</span>
-						<ul class="flow-text" id="blackboardentries">
-							Keine neuen Meldungen
-						</ul>
-						<script>
-							(function() {
-								var yesterday = new Date();
-								yesterday.setDate(yesterday.getDate() - 1);
-								$.getJSON( "http://fs.cs.hm.edu/rest/api/1/blackboard?since="+yesterday.getTime(), function( data ) {
-									if(data.length > 0) {
-										$("#blackboardentries").empty();
-										$.each(data, function( index, item) {
-											$("#blackboardentries").append("<li>"+item.subject+"</li>");
-										});
-									} else {
-										$("#cards").children("#blackboard").remove();
-									}
-								});
-							})();
-						</script>
-					</div>
-					<div class="card-action">
-					  <a href="Blackboard.html">Mehr anzeigen</a>
-					</div>
-				</div>
-			</div>
-			
-			
-			<!-- MENSA -->
-			<div class="col s12 m6" id="mensa">
-				<div class="card hoverable green darken-2">
-					<div class="card-content white-text">
-						<span class="card-title">Mensa</span>
-						<ul class="flow-text" id="meals">
-							<script>
-								(function() {
-									$.getJSON( "http://fs.cs.hm.edu/rest/api/1/meal?location=MENSA_LOTHSTRASSE", function( data ) {
-										if(data.length > 0) {
-											var today = new Date();
-											$.each(data, function( index, item) {
-												if(new Date(item.date).getDate() == today.getDate()) {
-													$("<li>"+item.name+"</div>").appendTo("#meals");
-												}
-											});
-										} else {
-											$("#cards").children("#mensa").remove();
-										}
-									});
-								})();
-							</script>
-						</ul>
-					</div>
-					<div class="card-action">
-					  <a href="Mensa.html">Mehr anzeigen</a>
-					</div>
-				</div>
-			</div>
-			
-			
-			<!-- MVV - Lothstraße -->
-			<div class="col s12 m6">
-				<div class="card hoverable blue darken-2">
-					<div class="card-content white-text">
-						<span class="card-title">MVV - Lothstraße</span>
-						<div class="flow-text" id="lothstrasse">
-							<script>
-								(function() {
-									$.getJSON( "http://fs.cs.hm.edu/rest/api/1/publicTransport?location=LOTHSTR", function( data ) {
-										$("#lothstrasse").empty();
-										var table = "<table style='width: 100%;'><thead><tr><th>Linie</th><th>Richtung</th><th>Abfahrt</th></tr><thead><tbody>";
-										$.each(data, function( index, item) {
-											var timeDiff = Math.round((new Date(item.departure).getTime() - new Date().getTime()) / 60000);
-											table += "<tr><td>"+item.line+"</td>"+
-												"<td>"+item.destination+"</td>"+
-												"<td>"+timeDiff+"</td></tr>";
-											if(index > 2) {
-												return false;
-											}
-										});
-										table += "</tbody></table>";
-										
-										$(table).appendTo("#lothstrasse");
-									});
-								})();
-							</script>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			
-			<!-- MVV - Pasing -->
-			<div class="col s12 m6">
-				<div class="card hoverable blue darken-2">
-					<div class="card-content white-text">
-						<span class="card-title">MVV - Pasing</span>
-						<div class="flow-text" id="pasing">
-							<script>
-								(function() {
-									$.getJSON( "http://fs.cs.hm.edu/rest/api/1/publicTransport?location=PASING", function( data ) {
-										$("#pasing").empty();
-										var table = "<table style='width: 100%;'><thead><tr><th>Linie</th><th>Richtung</th><th>Abfahrt</th></tr><thead><tbody>";
-										$.each(data, function( index, item) {
-											var timeDiff = Math.round((new Date(item.departure).getTime() - new Date().getTime()) / 60000);
-											table += "<tr><td>"+item.line+"</td>"+
-												"<td>"+item.destination+"</td>"+
-												"<td>"+timeDiff+"</td></tr>";
-											if(index > 2) {
-												return false;
-											}
-										});
-										table += "</tbody></table>";
-										
-										$(table).appendTo("#pasing");
-									});
-								})();
-							</script>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			
-			<!-- HOLIDAYS -->
-			<div class="col s12 m6">
-				<div class="card hoverable yellow darken-4">
-					<div class="card-content white-text">
-						<span class="card-title">Ferien</span>
-						<div class="flow-text" id="holidays">
-							<script>
-								(function() {
-									$.getJSON( "http://fs.cs.hm.edu/rest/api/1/calendar/holiday", function( data ) {
-										$.each(data, function( index, item) {
-											var today = new Date();
-											var holidayStart = new Date(item.start);
-											if(holidayStart.getTime() >= today.getTime()) {
-												var dayDiff = Math.round((holidayStart.getTime() - today.getTime()) / 1000 / 60 / 60 / 24);
-												$("#holidays").append(item.name + " in " + dayDiff + " Tagen");
-												return false;
-											}
-										});
-									});
-								})();
-							</script>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-			
-			
-	<footer class="page-footer grey darken-1 hide-on-med-and-down">
-	  <div class="container">
-		<div class="row">
-		  <div class="col l6 s12">
-			<h5 class="white-text">Links</h5>
-			<ul>
-			  <li><a class="grey-text text-lighten-3" href="Info.html">Info</a></li>
-			</ul>
-		  </div>
-		  <div class="col l6 s12">
-			<h5 class="white-text">Community</h5>
-			<ul>
-			  <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/groups/fs.cs.hm" target="_blank">Facebook</a></li>
-			</ul>
-		  </div>
-		</div>
-	  </div>
-	  <div class="footer-copyright grey darken-3">
-		<div class="container">
-		© 2016 by Fachschaft 07
-		<a class="grey-text text-lighten-4 right" href="#!">Impressum</a>
-		</div>
-	  </div>
-	</footer>
-  </body>
+    <body ng-app="fsApp">
+        
+        <div ui-view="navigation" id="navigation"></div>
+        <div ui-view="content" id="content"></div>
+        <div ui-view="footer" id="footer"></div>
+     
+     
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="bower_components/Materialize/dist/js/materialize.min.js"></script>
+        
+        <!-- Import Angular -->
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+        <!-- Directives -->
+
+        <!-- Services -->
+        <script src="shared/services/data.service.js"></script>
+        <script src="shared/services/filter.service.js"></script>
+
+        <!-- Components -->
+        <script src="js/app.js" type="text/javascript"></script>
+        <script src="components/navigation/navigation.controller.js"></script>
+        <script src="components/footer/footer.controller.js"></script>
+        
+        <script src="components/home/home.controller.js"></script>
+        <script src="components/blackboard/blackboard.controller.js"></script>
+        
+        <script>$('.collapsible').collapsible();</script>
+    </body>
 </html>

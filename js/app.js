@@ -12,8 +12,10 @@
         'fsApp.footer',
         'fsApp.home',
         'fsApp.blackboard',
+        'fsApp.info',
         
         // Directives
+        'fsApp.developer.directive',
         
         // Services
         'fsApp.services',
@@ -55,6 +57,20 @@
                         templateUrl: "components/footer/footer.html",
                         controller: "FooterController as footer"}
                 }
+            })
+            .state('info', {
+                url: "/info",
+                views: {
+                    "navigation": {
+                        templateUrl: "components/navigation/navigation.html",
+                        controller: "NavController as nav" },
+                    "content": {
+                        templateUrl: "components/info/info.html",
+                        controller: "InfoController as info" },
+                    "footer": { 
+                        templateUrl: "components/footer/footer.html",
+                        controller: "FooterController as footer"}
+                }
             });
-    }
+        }
 })();

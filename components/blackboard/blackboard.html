@@ -15,7 +15,7 @@
     </div>
 
     <div class="row">
-        <ul class="col s12 collapsible popout" data-collapsible="accordion" ng-repeat="item in blackboard.blackBoardEntries | filter:searchbar"> <!--Just filter the searchbox with AngularJS to minimize the network traffic-->
+        <ul collapse-elem class="col s12 collapsible popout" data-collapsible="accordion" ng-repeat="item in blackboard.blackBoardEntries | filter:searchbar"> <!--Just filter the searchbox with AngularJS to minimize the network traffic-->
             <li>
                 <div class="collapsible-header flow-text">
                     <b>{{ item.subject }}</b><br />

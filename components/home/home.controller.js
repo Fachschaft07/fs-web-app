@@ -12,54 +12,7 @@
         vm.trafficLothstr = [];
         vm.trafficPasing = [];
         vm.holidays = [];
-        
-        vm.mensaTest = [
-    {
-        "date": 1443650400000,
-        "type": "VEGAN",
-        "name": "Buntes Pfannengemüse   ",
-        "additives": []
-    },
-    {
-        "date": 1443650400000,
-        "type": "MEAT",
-        "name": "Münchner Krustenbraten mit Biersauce    ",
-        "additives": [
-            "PIG",
-            "ALCOHOL"
-        ]
-    },
-    {
-        "date": 1443650400000,
-        "type": "MEAT",
-        "name": "Bio-Chili con carne   ",
-        "additives": [
-            "BEEF",
-            "PIG"
-        ]
-    },
-    {
-        "date": 1443736800000,
-        "type": "VEGAN",
-        "name": "Indisches Linsencurry   ",
-        "additives": []
-    },
-    {
-        "date": 1443736800000,
-        "type": "MEATLESS",
-        "name": "Dampfnudel mit Vanillesauce   ",
-        "additives": []
-    },
-    {
-        "date": 1443736800000,
-        "type": "MEAT",
-        "name": "Seelachsfilet (MSC) Müllerin, Zitronensauce   ",
-        "additives": [
-            "DYE"
-        ]
-    }
-];
-        
+                
         init();
         
         //////////////////////////////////////////////////////////////
@@ -123,8 +76,6 @@
             for (var i = 0; i < data.length; i++) {
                 var holidayStart = new Date(data[i].start);
                 if (holidayStart.getTime() >= today.getTime()) {
-                    console.log('in if');
-                    console.log(data[i]);
                     vm.nextHoliday = data[i];
                     break;
                 }

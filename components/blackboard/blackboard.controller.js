@@ -2,9 +2,9 @@
 (function () {
     angular
         .module('fsApp.blackboard', [])
-        .controller('BlackboardController', ['dataFactory', BlackboardController]);
+        .controller('BlackboardController', ['dataFactory', '$scope', BlackboardController]);
     
-    function BlackboardController(dataFactory) {
+    function BlackboardController(dataFactory, $scope) {
         var vm = this;
         vm.blackBoardEntries = [];
         
@@ -17,7 +17,9 @@
             dataFactory.getBlackboard()
                 .then(function(result) {
                     vm.blackBoardEntries = result.data;
+                    $scope.$broadcast('dataloaded');
             })
-        }        
+        }
+        
     }
 })();

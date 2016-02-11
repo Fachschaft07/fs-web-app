@@ -2,12 +2,12 @@
 (function () {
     angular
         .module('fsApp.blackboard', [])
-        .controller('BlackboardController', ['dataFactory', '$scope', BlackboardController]);
+        .controller('BlackboardController', ['dataFactory', '$scope', '$timeout', BlackboardController]);
     
-    function BlackboardController(dataFactory, $scope) {
+    function BlackboardController(dataFactory, $scope, $timeout) {
+        console.log('BlackboardController');
         var vm = this;
         vm.blackBoardEntries = [];
-        
         
         getBlackBoard();
         
@@ -17,9 +17,11 @@
             dataFactory.getBlackboard()
                 .then(function(result) {
                     vm.blackBoardEntries = result.data;
-                    $scope.$broadcast('dataloaded');
+                
+                $timeout(function(){
+                    $('.collapsible').collapsible({});
+                },500);
             })
-        }
-        
-    }
+        }   
+    } // end BlackboardController
 })();

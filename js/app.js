@@ -6,6 +6,7 @@
         // Modules
         'ui.router',
         'ngSanitize',
+        'angular.filter',
         
         // Components
         'fsApp.navigation',
@@ -15,6 +16,7 @@
         'fsApp.info',
         'fsApp.jobs',
         'fsApp.lostfound',
+        'fsApp.mensa',
         
         // Directives
         'fsApp.developer.directive',
@@ -97,6 +99,20 @@
                     "content": {
                         templateUrl: "components/lostfound/lostfound.html",
                         controller: "LostFoundController as lostfound" },
+                    "footer": { 
+                        templateUrl: "components/footer/footer.html",
+                        controller: "FooterController as footer"}
+                }
+            })
+            .state('mensa', {
+                url: "/mensa",
+                views: {
+                    "navigation": {
+                        templateUrl: "components/navigation/navigation.html",
+                        controller: "NavController as nav" },
+                    "content": {
+                        templateUrl: "components/mensa/mensa.html",
+                        controller: "MensaController as mensa" },
                     "footer": { 
                         templateUrl: "components/footer/footer.html",
                         controller: "FooterController as footer"}

@@ -5,6 +5,7 @@
         
         // Modules
         'ui.router',
+        'ngSanitize',
         
         // Components
         'fsApp.navigation',

@@ -17,6 +17,7 @@
             dataFactory.getBlackboard()
                 .then(function(result) {
                     vm.blackBoardEntries = result.data;
+                    console.log(result.data);
                 
                 $timeout(function(){
                     $('.collapsible').collapsible({});

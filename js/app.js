@@ -14,6 +14,7 @@
         'fsApp.blackboard',
         'fsApp.info',
         'fsApp.jobs',
+        'fsApp.lostfound',
         
         // Directives
         'fsApp.developer.directive',
@@ -82,6 +83,20 @@
                     "content": {
                         templateUrl: "components/jobs/jobs.html",
                         controller: "JobsController as jobs" },
+                    "footer": { 
+                        templateUrl: "components/footer/footer.html",
+                        controller: "FooterController as footer"}
+                }
+            })
+            .state('lostfound', {
+                url: "/lostfound",
+                views: {
+                    "navigation": {
+                        templateUrl: "components/navigation/navigation.html",
+                        controller: "NavController as nav" },
+                    "content": {
+                        templateUrl: "components/lostfound/lostfound.html",
+                        controller: "LostFoundController as lostfound" },
                     "footer": { 
                         templateUrl: "components/footer/footer.html",
                         controller: "FooterController as footer"}

@@ -40,6 +40,11 @@
                     var url= urlBase + 'jobs';
                     return get(url, params);
                 }
+                
+                dataFactory.getLostFound = function (params) {
+                    var url = urlBase + 'lostandfound';
+                    return get(url, params);
+                }
 
                 return dataFactory;
             }

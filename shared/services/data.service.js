@@ -35,6 +35,11 @@
                     var url = urlBase + 'calendar/holiday';
                     return get(url, params);
                 }
+                
+                dataFactory.getJobs = function (params) {
+                    var url= urlBase + 'jobs';
+                    return get(url, params);
+                }
 
                 return dataFactory;
             }

@@ -13,6 +13,7 @@
         'fsApp.home',
         'fsApp.blackboard',
         'fsApp.info',
+        'fsApp.jobs',
         
         // Directives
         'fsApp.developer.directive',
@@ -67,6 +68,20 @@
                     "content": {
                         templateUrl: "components/info/info.html",
                         controller: "InfoController as info" },
+                    "footer": { 
+                        templateUrl: "components/footer/footer.html",
+                        controller: "FooterController as footer"}
+                }
+            })
+            .state('jobs', {
+                url: "/jobs",
+                views: {
+                    "navigation": {
+                        templateUrl: "components/navigation/navigation.html",
+                        controller: "NavController as nav" },
+                    "content": {
+                        templateUrl: "components/jobs/jobs.html",
+                        controller: "JobsController as jobs" },
                     "footer": { 
                         templateUrl: "components/footer/footer.html",
                         controller: "FooterController as footer"}

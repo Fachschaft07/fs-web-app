@@ -29,11 +29,9 @@
             }
         ]
         
-	   /*<script>
-            $(document).ready(function(){
-              $('.parallax').parallax();
-            });
-	   </script>*/
+        $(document).ready(function(){
+          $('.parallax').parallax();
+        });
     }
     
 })();

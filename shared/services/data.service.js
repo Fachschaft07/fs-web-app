@@ -45,6 +45,11 @@
                     var url = urlBase + 'lostandfound';
                     return get(url, params);
                 }
+                
+                dataFactory.getNews = function (params) {
+                    var url = urlBase + 'fs/news';
+                    return get(url, params);
+                }
 
                 return dataFactory;
             }

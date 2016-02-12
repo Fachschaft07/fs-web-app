@@ -5,7 +5,6 @@
         .controller('BlackboardController', ['dataFactory', '$scope', '$timeout', BlackboardController]);
     
     function BlackboardController(dataFactory, $scope, $timeout) {
-        console.log('BlackboardController');
         var vm = this;
         vm.blackBoardEntries = [];
         
@@ -16,8 +15,6 @@
             dataFactory.getBlackboard()
                 .then(function(result) {
                     vm.blackBoardEntries = result.data;
-                
-                
             })
         }   
     } // end BlackboardController

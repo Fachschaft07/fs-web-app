@@ -18,6 +18,10 @@
         'fsApp.jobs',
         'fsApp.lostfound',
         'fsApp.mensa',
+        'fsApp.mvv',
+        'fsApp.news',
+        'fsApp.rooms',
+        'fsApp.timetable',
         
         // Directives
         'fsApp.developer.directive',
@@ -114,6 +118,62 @@
                     "content": {
                         templateUrl: "components/mensa/mensa.html",
                         controller: "MensaController as mensa" },
+                    "footer": { 
+                        templateUrl: "components/footer/footer.html",
+                        controller: "FooterController as footer"}
+                }
+            })
+            .state('mvv', {
+                url: "/mvv",
+                views: {
+                    "navigation": {
+                        templateUrl: "components/navigation/navigation.html",
+                        controller: "NavController as nav" },
+                    "content": {
+                        templateUrl: "components/mvv/mvv.html",
+                        controller: "MvvController as mvv" },
+                    "footer": { 
+                        templateUrl: "components/footer/footer.html",
+                        controller: "FooterController as footer"}
+                }
+            })
+            .state('news', {
+                url: "/news",
+                views: {
+                    "navigation": {
+                        templateUrl: "components/navigation/navigation.html",
+                        controller: "NavController as nav" },
+                    "content": {
+                        templateUrl: "components/news/news.html",
+                        controller: "NewsController as news" },
+                    "footer": { 
+                        templateUrl: "components/footer/footer.html",
+                        controller: "FooterController as footer"}
+                }
+            })
+            .state('rooms', {
+                url: "/rooms",
+                views: {
+                    "navigation": {
+                        templateUrl: "components/navigation/navigation.html",
+                        controller: "NavController as nav" },
+                    "content": {
+                        templateUrl: "components/rooms/rooms.html",
+                        controller: "RoomsController as rooms" },
+                    "footer": { 
+                        templateUrl: "components/footer/footer.html",
+                        controller: "FooterController as footer"}
+                }
+            })
+            .state('timetable', {
+                url: "/timetable",
+                views: {
+                    "navigation": {
+                        templateUrl: "components/navigation/navigation.html",
+                        controller: "NavController as nav" },
+                    "content": {
+                        templateUrl: "components/timetable/timetable.html",
+                        controller: "TimetableController as timetable" },
                     "footer": { 
                         templateUrl: "components/footer/footer.html",
                         controller: "FooterController as footer"}

@@ -16,10 +16,6 @@
             dataFactory.getJobs()
                 .then(function(result) {
                     vm.jobs = result.data;
-                
-                    /*$timeout(function(){
-                        $('.collapsible').collapsible({});
-                    },500);*/
             })
         }
     }    

@@ -7,6 +7,7 @@
         'ui.router',
         'ngSanitize',
         'angular.filter',
+        'ui.materialize',
         
         // Components
         'fsApp.navigation',

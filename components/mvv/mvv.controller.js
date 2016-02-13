@@ -2,16 +2,20 @@
 (function () {
     angular
         .module('fsApp.mvv', [])
-        .controller('MvvController', ['$interval', 'dataFactory', MvvController]);
+        .controller('MvvController', ['$interval', 'dataFactory', '$scope', MvvController]);
     
-    function MvvController($interval, dataFactory) {
+    function MvvController($interval, dataFactory, $scope) {
         var vm = this;
-        var getTraffic = getTraffic;
-
         vm.lothstr = [];
         vm.pasing = [];
         
-        var getTransportTraffic = function() {
+        var promise;
+        var getTransportTraffic = getTransportTraffic;
+        
+        startInterval();       
+        
+        /////////////////////////////////////////////////////
+        function getTransportTraffic() {
             dataFactory.getTraffic({ location: 'LOTHSTR' })
                 .then(function(result){
                     vm.lothstr = result.data;
@@ -24,6 +28,13 @@
             })
         }
 
-        $interval(getTransportTraffic, 1000);
+        function startInterval() {
+            promise = $interval(getTransportTraffic, 1000);
+        }
+        
+        // Destroy Interval on state change 
+        $scope.$on("$destroy",function(){
+            $interval.cancel(promise);
+        });
     }
 })();

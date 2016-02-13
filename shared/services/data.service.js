@@ -50,6 +50,11 @@
                     var url = urlBase + 'fs/news';
                     return get(url, params);
                 }
+                
+                dataFactory.getRooms = function (params) {
+                    var url = urlBase + "room";
+                    return get(url, params);
+                }
 
                 return dataFactory;
             }

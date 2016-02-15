@@ -2,9 +2,9 @@
 (function () {
     angular
         .module('fsApp.editor', [])
-        .controller('TimetableEditorController', ['dataFactory', '$scope', 'localStorageService', TimetableEditorController]);
+        .controller('TimetableEditorController', ['dataFactory', '$scope', TimetableEditorController]);
 
-    function TimetableEditorController(dataFactory, $scope, localStorageService) {
+    function TimetableEditorController(dataFactory, $scope) {
         var editor = this;
 
         editor.list = [];
@@ -29,8 +29,9 @@
 		}
 
 		function loadLocal() {
-			console.log(editor.timetableItems);
+			//console.log(JSON.parse(editor.timetableItems));
 			//editor.timetableItems = JSON.parse(localStorageService.getObject('timetable'));
+				//editor.timetableItems = JSON.parse(localStorage.timetable);
 		}
 
         function getModules() {
@@ -95,7 +96,9 @@
 		}
 
 		function saveTimetable() {
-			console.log(editor.timetableItems);
+			console.log(JSON.stringify(editor.timetableItems));
+			// Store
+			localStorage.timetable = JSON.stringify(editor.timetableItems);
 			//localStorageService.setObject('timetable', JSON.stringify(editor.timetableItems));
 		}
 

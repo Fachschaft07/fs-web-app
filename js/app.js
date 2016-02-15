@@ -29,8 +29,7 @@
         
         // Services
         'fsApp.data.service',
-        'fsApp.filter.service',
-        'fsApp.storage.service'
+        'fsApp.filter.service'
         ])
         .config(FsAppConfig);
     

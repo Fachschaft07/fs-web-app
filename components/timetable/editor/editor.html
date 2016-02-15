@@ -44,7 +44,7 @@
                 </div>
             </div>
         </div>
-        <div class="col s12 l6 card padding-card" ng-show="editor.selectedItems.length">
+        <div class="col s12 l6 card padding-card" ng-show="editor.timetableItems.length">
             <div class="card-item">
                 <div class="card-header" ng-show="moduleMonday.length">Montag</div>
                 <div ng-repeat="item in moduleMonday = (editor.timetableItems | filter: editor.mon | orderBy: 'date')">

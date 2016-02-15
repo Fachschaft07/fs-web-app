@@ -61,6 +61,11 @@
                     return get(url, params);
                 }
 
+                dataFactory.getLesson = function (params) {
+                    var url = urlBase + "timetable/lessons"
+                    return get(url, params);
+                }
+
                 return dataFactory;
             }
         ]);

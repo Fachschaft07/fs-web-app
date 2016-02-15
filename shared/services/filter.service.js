@@ -36,5 +36,24 @@
                 })
                 return meals;
             }
+        })
+        .filter('translateWeekday', function() {
+            return function(item) {
+                var day;
+                switch(item) {
+                case "MONDAY":
+                    return "Montag";
+                case "TUESDAY":
+                    return "Dienstag";
+                case "WEDNESDAY":
+                    return "Mittwoch";
+                case "THURSDAY":
+                    return "Donnerstag";
+                case "FRIDAY":
+                    return "Freitag";
+                default:
+                    return "Wrong input";
+                }
+            }
         });
 })();

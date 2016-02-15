@@ -11,3 +11,14 @@ main {
 .padding-card {
   padding: 0px 10px 10px 10px;
 }
+
+.card {
+  .card-header {
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+  .card-item {
+    margin-bottom: 20px;
+  }
+
+}

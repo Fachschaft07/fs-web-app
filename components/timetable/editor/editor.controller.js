@@ -86,7 +86,11 @@
 			editor.timetableItems = [];
 			// Get the Modules for timetable
 			newValue.forEach(function(value) {
-				var group = value.group.study + value.group.semester.charAt(1) + value.group.letter;
+				console.log(value);
+				var group = (value.group.study ? value.group.study : "")
+					+ (value.group.semester ? value.group.semester.charAt(1) : "")
+					+ (value.group.letter ? value.group.letter : "");
+				console.log(group);
 				var module = value.module.id;
 				var teacher = value.teacher.id;
 				var pk = value.praktikum ? value.praktikum : null;
@@ -94,6 +98,12 @@
 					.then(function(result) {
 						console.log(result);
 						for (var i = 0; i < result.data.length; i++) {
+							var date = new Date();
+							date.setHours(result.data[i].hour);
+							date.setMinutes(result.data[i].minute);
+							result.data[i].date = date;
+							console.log(result.data[i]);
+
 							editor.timetableItems.push(result.data[i]);
 						}
 					});

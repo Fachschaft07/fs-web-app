@@ -41,36 +41,40 @@
                 </div>
             </div>
         </div>
-        <div class="col s12 l8">
-            <!--<div ng-repeat="(key, value) in editor.timetableItems | groupBy: 'day'">
-                <div class="collection-header">{{ key | translateWeekday }}</div>
-                <div class="collection-item" ng-repeat="item in value ">
-                    {{ item.module.name }} - {{ item.teacher.name }} um {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}}
+        <div class="col s12 l8 card padding-card">
+            <div class="card-item">
+                <div class="card-header" ng-show="moduleMonday.length">Montag</div>
+                <div ng-repeat="item in moduleMonday = (editor.timetableItems | filter: editor.mon | orderBy: 'date')">
+                    {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} - {{ item.teacher.name }}
                 </div>
-            </div>-->
-            <div class="collection-header">Montag</div>
-            <div ng-repeat="item in editor.timetableItems | filter: editor.mon">
-                {{ item.module.name }} - {{ item.teacher.name }} um {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}}
             </div>
 
-            <div class="collection-header">Dienstag</div>
-            <div ng-repeat="item in editor.timetableItems | filter: editor.tue">
-                {{ item.module.name }} - {{ item.teacher.name }} um {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}}
+            <div class="card-item">
+                <div class="card-header" ng-show="moduleTuesday.length">Dienstag</div>
+                <div ng-repeat="item in moduleTuesday = (editor.timetableItems | filter: editor.tue | orderBy: 'date')">
+                    {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} - {{ item.teacher.name }}
+                </div>
             </div>
 
-            <div class="collection-header">Mittwoch</div>
-            <div ng-repeat="item in editor.timetableItems | filter: editor.wed">
-                {{ item.module.name }} - {{ item.teacher.name }} um {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}}
+            <div class="card-item">
+                <div class="card-header" ng-show="moduleWednesday.length">Mittwoch</div>
+                <div ng-repeat="item in moduleWednesday = (editor.timetableItems | filter: editor.wed | orderBy: 'date')">
+                    {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} - {{ item.teacher.name }}
+                </div>
             </div>
 
-            <div class="collection-header">Donnerstag</div>
-            <div ng-repeat="item in editor.timetableItems | filter: editor.thurs">
-                {{ item.module.name }} - {{ item.teacher.name }} um {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}}
+            <div class="card-item">
+                <div class="card-header" ng-show="moduleThursday.length">Donnerstag</div>
+                <div ng-repeat="item in moduleThursday = (editor.timetableItems | filter: editor.thurs | orderBy: 'date')">
+                    {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} - {{ item.teacher.name }}
+                </div>
             </div>
 
-            <div class="collection-header">Freitag</div>
-            <div ng-repeat="item in editor.timetableItems | filter: editor.fri">
-                {{ item.module.name }} - {{ item.teacher.name }} um {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}}
+            <div class="card-item">
+                <div class="card-header" ng-show="moduleFriday.length">Freitag</div>
+                <div ng-repeat="item in moduleFriday = (editor.timetableItems | filter: editor.fri | orderBy: 'date')">
+                    {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} - {{ item.teacher.name }}
+                </div>
             </div>
         </div>
     </div>

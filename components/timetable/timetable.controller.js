@@ -4,5 +4,9 @@
         .module('fsApp.timetable', [])
         .controller('TimetableController', [TimetableController]);
     
-    function TimetableController() {}
+    function TimetableController() {
+        var vm = this;
+        
+
+    }
 })();

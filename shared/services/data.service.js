@@ -55,6 +55,11 @@
                     var url = urlBase + "room";
                     return get(url, params);
                 }
+                
+                dataFactory.getModules = function (params) {
+                    var url = urlBase + "timetable/modules";
+                    return get(url, params);
+                }
 
                 return dataFactory;
             }

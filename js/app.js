@@ -22,6 +22,7 @@
         'fsApp.news',
         'fsApp.rooms',
         'fsApp.timetable',
+        'fsApp.editor',
         
         // Directives
         'fsApp.developer.directive',
@@ -174,6 +175,20 @@
                     "content": {
                         templateUrl: "components/timetable/timetable.html",
                         controller: "TimetableController as timetable" },
+                    "footer": { 
+                        templateUrl: "components/footer/footer.html",
+                        controller: "FooterController as footer"}
+                }
+            })
+            .state('editor', {
+                url: "/editor",
+                views: {
+                    "navigation": {
+                        templateUrl: "components/navigation/navigation.html",
+                        controller: "NavController as nav" },
+                    "content": {
+                        templateUrl: "components/timetable/editor/editor.html",
+                        controller: "TimetableEditorController as editor" },
                     "footer": { 
                         templateUrl: "components/footer/footer.html",
                         controller: "FooterController as footer"}

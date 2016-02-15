@@ -1,0 +1,86 @@
+<!-- Page Layout here -->
+<div class="container">
+    <h3 class="center">Stundenplan</h3>
+
+    <!-- Timetable for Desktop -->
+    <div class="row">
+        <div class="col s12 l4">
+            <div class="row">
+                <div class="col s12">
+                    <div class="card-panel center">
+                        <a ng-click="console.log(editor);" class="waves-effect waves-light btn orange" style="margin-bottom: 1em;"><i class="material-icons left">save</i>Save to Google Drive</a>
+                        <div input-field>
+                            <i class="material-icons prefix">search</i>
+                            <input type="text" class="validate" ng-model="editor.searchbar" ng-change="editor.getModules()" maxlength="4">
+                            <label>Studiengruppe</label>
+                        </div>
+                    </div>
+                </div>
+                <ul class="col s12 collection with-header" ng-repeat="module in editor.list">
+                    <li class="collection-item">
+                        <div>
+                            {{ module.module.name }}
+                            <p class="secondary-content">
+                                <input type="checkbox" id="checkbox_{{module.module.id}}_{{module.teacher.id}}"
+                                       ng-model="editor.checked[$index]" ng-change="editor.toggleModule(module, $index)"/>
+                                <label for="checkbox_{{module.module.id}}_{{module.teacher.id}}"></label>
+                            </p>
+                        </div>
+                        <p>{{ module.teacher.name }}</p>
+                        <div input-field ng-if="module.groups.length">
+                            <!--<select material-select watch>
+                                <option ng-repeat="value in module.groups">{{value}}</option>
+                            </select>-->
+                            <select material-select ng-model="editor.praktikum[$index]" ng-change="editor.selectChanged(module, $index, editor.praktikum[$index])"
+                                    ng-options="value for value in module.groups">
+                                <option value="0">bitte wählen</option>
+                            </select>
+                            <label>Praktikum</label>
+                        </div>
+                        <!--
+                              <span  class="nullable">
+                                <select ng-model="myColor" ng-options="color.name for color in colors">
+                                  <option value="">-- choose color --</option>
+                                </select>
+                              </span>
+                            </label><br/>-->
+                    </li>
+                    <!--
+
+
+
+
+                    <li class='collection-item' " style='height: 12em;'">
+                        <div>
+                            {{ item.module.name }}
+                            <a href='#!' class='secondary-content'>
+                                <input type='checkbox' id='" + (item.module.id + item.teacher.id + prefix) + "check' />
+                                <label for='" + (item.module.id + item.teacher.id + prefix) + "check'></label>
+                            </a>
+                        </div>";
+
+                        <p>{{ item.teacher.name }}</p>
+                        <div class='input-field' style='height: 6em;'>
+                            <select id='" + (item.module.id + item.teacher.id + prefix + "praktikum") + "'>
+                                <option value='0' selected> nicht belegt</option>" for (i = 0; i
+                                < count; i++) { <option value='" + (i + 1) + "'>Gruppe " + item.groups[i] + "</option>
+                                    }
+                            </select>
+                            <label>Praktikum</label>
+                        </div>
+                    </li>
+
+                    -->
+
+
+
+                </ul>
+            </div>
+        </div>
+        <div class="col s12 l8">
+            <div>
+                {{ editor.selectedItems }}<br><br>
+            </div>
+        </div>
+    </div>
+</div>

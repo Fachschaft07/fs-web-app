@@ -28,8 +28,9 @@
         'fsApp.developer.directive',
         
         // Services
-        'fsApp.services',
-        'fsApp.filter'
+        'fsApp.data.service',
+        'fsApp.filter.service',
+        'fsApp.storage.service'
         ])
         .config(FsAppConfig);
     

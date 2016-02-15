@@ -1,7 +1,7 @@
 'use strict';
 (function() {
     angular
-        .module('fsApp.services', [])
+        .module('fsApp.data.service', [])
         .factory('dataFactory', [
             '$http', function($http) {
                 var urlBase = 'http://fs.cs.hm.edu/rest/api/1/';

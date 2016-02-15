@@ -10,6 +10,9 @@
                         <a ng-click="console.log(editor);" class="waves-effect waves-light btn orange" style="margin-bottom: 1em;">
                             <i class="material-icons left">save</i>Save to Google Drive
                         </a>
+                        <a ng-click="editor.saveTimetable()" class="waves-effect waves-light btn blue">
+                            <i class="material-icons left">save</i>Save local
+                        </a>
                         <div input-field>
                             <i class="material-icons prefix">search</i>
                             <input type="text" class="validate" ng-model="editor.searchbar"

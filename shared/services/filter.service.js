@@ -4,7 +4,7 @@
 (function () {
 
     angular
-        .module('fsApp.filter', [])
+        .module('fsApp.filter.service', [])
         .filter('daysLeft', function () {
             return function (input) {
                 var startDate = new Date(input);

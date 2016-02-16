@@ -63,7 +63,7 @@
                             <tbody ng-repeat="item in home.trafficLothstr | limitTo:4">
                                 <tr>
                                     <td>{{ item.line }}</td>
-                                    <td>{{ item.destination }}</td>
+                                    <td>{{ item.destination | limitTo: (item.destination.length - 2) }}</td>
                                     <td>{{ item.departure | minutesLeft }}</td><!-- | filter -->
                                 </tr>
                             </tbody>

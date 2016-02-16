@@ -49,3 +49,21 @@ main {
   top: 70px;
   right: 30px;
 }
+
+.faded-line {
+  height: 1px;
+  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 700, from(#E0E0E0), to(#fff));
+}
+
+.jumbotron {
+  border-top: 1px solid #E0E0E0;
+  margin-top: 50px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #E0E0E0;
+
+  button {
+    margin-top: 30px;
+  }
+}

@@ -57,12 +57,12 @@
                                   minute: timeRange[parseInt(vm.time)].getMinutes()})
                 .then(function(result) {
                     vm.list = result.data;
-                    var time = new Date();
-                    vm.list.forEach(function(item) {
-                        time.setHours(item.hour);
-                        time.setMinutes(item.minute);
-                        item.time = time;
-                    });
+                    for (var i = 0; i < vm.list.length; i++) {
+                        var time = new Date();
+                        time.setHours(vm.list[i].hour);
+                        time.setMinutes(vm.list[i].minute);
+                        vm.list[i].time = time;
+                    };
             });
         }
                       

@@ -2,11 +2,11 @@
     <div class="row">
        
         <!-- BLACKBOARD -->
-        <div class="col s12 m6">
+        <div class="col s12 m6" ng-if="home.blackboard.length">
             <div class="card hoverable">
-                <div class="card-content ">
+                <div class="card-content">
                     <span class="card-title">Schwarzes Brett</span>
-                    <ul class="flow-text" ng-repeat="item in home.blackboard" ng-if="home.blackboard.length">
+                    <ul class="flow-text" ng-repeat="item in home.blackboard">
                         <li>{{ item.subject }}</li>
                     </ul>
                     <ul class="flow-text" ng-if="!home.blackboard.length">
@@ -19,13 +19,12 @@
             </div>
         </div>
 
-
         <!-- MENSA -->
-        <div class="col s12 m6">
+        <div class="col s12 m6" ng-if="menu.length">
             <div class="card hoverable green darken-2">
                 <div class="card-content white-text">
                     <span class="card-title">Mensa</span>
-                    <ul class="flow-text" ng-repeat="item in home.mensaMenu | today:home.mensaMenu">
+                    <ul class="flow-text" ng-repeat="item in menu = (home.mensaMenu | today:home.mensaMenu)">
                         <li>{{ item.name }}</li>
                     </ul>
                 </div>
@@ -68,7 +67,7 @@
                 <div class="card-content white-text">
                     <span class="card-title">MVV - Pasing</span>
                     <div class="flow-text">
-                        <table style='width: 100%;'>
+                        <table>
                             <thead>
                                 <tr>
                                     <th>Linie</th>

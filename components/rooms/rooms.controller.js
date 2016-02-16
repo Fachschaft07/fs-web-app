@@ -54,7 +54,7 @@
         //?type=ALL&day="+day+"&hour="+hour+"&minute="+minute"
         function getRooms() {
             dataFactory.getRooms({ day: weekday[parseInt(vm.day)], hour: timeRange[parseInt(vm.time)].getHours(), 
-                                  minute: timeRange[parseInt(vm.time)].getMinutes()})
+                                  minute: timeRange[parseInt(vm.time)].getMinutes(), type: vm.type})
                 .then(function(result) {
                     vm.list = result.data;
                     for (var i = 0; i < vm.list.length; i++) {

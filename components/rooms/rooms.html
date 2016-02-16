@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col s12 m8 offset-m2 l6 offset-l3">
             <div class="card-panel" style="height: 7em;">
-              <div class="input-field col s6">
+              <div class="input-field col s4">
                 <select ng-model="rooms.day" ng-change="rooms.getRooms()" material-select watch>
                   <option value="1">Montag</option>
                   <option value="2">Dienstag</option>
@@ -18,7 +18,7 @@
                 </select>
                 <label>Wochentag</label>
               </div>
-              <div class="input-field col s6">
+              <div class="input-field col s4">
                 <select ng-model="rooms.time" ng-change="rooms.getRooms()" material-select watch>
                   <option value="0" selected>08:15 - 09:45</option>
                   <option value="1">10:00 - 11:30</option>
@@ -30,6 +30,15 @@
                 </select>
                 <label>Uhrzeit</label>
               </div>
+                <div class="input-field col s4">
+                    <select ng-model="rooms.type" ng-change="rooms.getRooms()" material-select watch>
+                        <option value="" selected>Alle</option>
+                        <option value="AUDITORIUM">Auditorium</option>
+                        <option value="LABORATORY">Labor</option>
+                        <option value="LOUNGE">Lounge</option>
+                    </select>
+                    <label>Typ</label>
+                </div>
             </div>
         </div>
     </div>

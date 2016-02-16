@@ -29,9 +29,14 @@
 		}
 
 		function loadLocal() {
-			//console.log(JSON.parse(editor.timetableItems));
-			//editor.timetableItems = JSON.parse(localStorageService.getObject('timetable'));
-				//editor.timetableItems = JSON.parse(localStorage.timetable);
+
+			if (localStorage.timetable) {
+				console.log('Timetable saved');
+				console.log(JSON.parse(localStorage.timetable));
+				editor.selectedItems = JSON.parse(localStorage.timetable);
+			} else {
+				console.log('No Timetable saved');
+			}
 		}
 
         function getModules() {
@@ -96,10 +101,9 @@
 		}
 
 		function saveTimetable() {
-			console.log(JSON.stringify(editor.timetableItems));
+			console.log(JSON.stringify(editor.selectedItems));
 			// Store
-			localStorage.timetable = JSON.stringify(editor.timetableItems);
-			//localStorageService.setObject('timetable', JSON.stringify(editor.timetableItems));
+			localStorage.timetable = JSON.stringify(editor.selectedItems);
 		}
 
 		$scope.$watch('editor.selectedItems', selectedItemsChanged, true);

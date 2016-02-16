@@ -10,35 +10,35 @@
             <div class="card-item">
                 <div class="card-header" ng-show="moduleMonday.length">Montag</div>
                 <div ng-repeat="item in moduleMonday = (timetable.items | filter: timetable.mon | orderBy: 'date')">
-                    {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} - {{ item.teacher.name }}
+                    {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} <span ng-if="item.suffix">({{item.suffix}})</span> - {{ item.teacher.name }}
                 </div>
             </div>
 
             <div class="card-item">
                 <div class="card-header" ng-show="moduleTuesday.length">Dienstag</div>
                 <div ng-repeat="item in moduleTuesday = (timetable.items | filter: timetable.tue | orderBy: 'date')">
-                    {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} - {{ item.teacher.name }}
+                    {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} <span ng-if="item.suffix">({{item.suffix}})</span> - {{ item.teacher.name }}
                 </div>
             </div>
 
             <div class="card-item">
                 <div class="card-header" ng-show="moduleWednesday.length">Mittwoch</div>
                 <div ng-repeat="item in moduleWednesday = (timetable.items | filter: timetable.wed | orderBy: 'date')">
-                    {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} - {{ item.teacher.name }}
+                    {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} <span ng-if="item.suffix">({{item.suffix}})</span> - {{ item.teacher.name }}
                 </div>
             </div>
 
             <div class="card-item">
                 <div class="card-header" ng-show="moduleThursday.length">Donnerstag</div>
                 <div ng-repeat="item in moduleThursday = (timetable.items | filter: timetable.thurs | orderBy: 'date')">
-                    {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} - {{ item.teacher.name }}
+                    {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} <span ng-if="item.suffix">({{item.suffix}})</span> - {{ item.teacher.name }}
                 </div>
             </div>
 
             <div class="card-item">
                 <div class="card-header" ng-show="moduleFriday.length">Freitag</div>
                 <div ng-repeat="item in moduleFriday = (timetable.items | filter: timetable.fri | orderBy: 'date')">
-                    {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} - {{ item.teacher.name }}
+                    {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} <span ng-if="item.suffix">({{item.suffix}})</span> - {{ item.teacher.name }}
                 </div>
             </div>
         </div>

@@ -1,6 +1,5 @@
 <div class="container">
     <div class="row">
-       
         <!-- BLACKBOARD -->
         <div class="col s12 m6" ng-if="home.blackboard.length">
             <div class="card hoverable">
@@ -19,6 +18,18 @@
             </div>
         </div>
 
+        <!-- HOLIDAYS -->
+        <div class="col s12 m6">
+            <div class="card hoverable yellow darken-4">
+                <div class="card-content white-text">
+                    <span class="card-title">Ferien</span>
+                    <div class="flow-text">
+                        {{ home.nextHoliday.name }} in {{ home.nextHoliday.start | daysLeft }} Tagen
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- MENSA -->
         <div class="col s12 m6" ng-if="menu.length">
             <div class="card hoverable green darken-2">
@@ -33,7 +44,8 @@
                 </div>
             </div>
         </div>
-
+    </div>
+    <div class="row">
         <!-- MVV - Lothstraße -->
         <div class="col s12 m6">
             <div class="card hoverable blue darken-2">
@@ -83,18 +95,6 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- HOLIDAYS -->
-        <div class="col s12 m6">
-            <div class="card hoverable yellow darken-4">
-                <div class="card-content white-text">
-                    <span class="card-title">Ferien</span>
-                    <div class="flow-text">
-                        {{ home.nextHoliday.name }} in {{ home.nextHoliday.start | daysLeft }} Tagen
                     </div>
                 </div>
             </div>

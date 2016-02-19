@@ -5,16 +5,17 @@
         .controller('BlackboardController', ['dataFactory', '$scope', '$timeout', BlackboardController]);
     
     function BlackboardController(dataFactory, $scope, $timeout) {
-        var vm = this;
-        vm.blackBoardEntries = [];
+        var blackboard = this;
+        blackboard.blackBoardEntries = [];
+        blackboard.getBlackBoard = getBlackBoard;
         
         getBlackBoard();
         
         ///////////////////////////////////
         function getBlackBoard() {
-            dataFactory.getBlackboard()
+            dataFactory.getBlackboard({ group: blackboard.group })
                 .then(function(result) {
-                    vm.blackBoardEntries = result.data;
+                    blackboard.blackBoardEntries = result.data;
             })
         }   
     } // end BlackboardController

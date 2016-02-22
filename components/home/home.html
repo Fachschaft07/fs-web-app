@@ -64,7 +64,7 @@
                                 <tr>
                                     <td>{{ item.line }}</td>
                                     <td>{{ item.destination | limitTo: (item.destination.length - 2) }}</td>
-                                    <td>{{ item.departure | minutesLeft }}</td><!-- | filter -->
+                                    <td>{{ item.departure | minutesLeft }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -91,7 +91,7 @@
                                 <tr>
                                     <td>{{ item.line }}</td>
                                     <td>{{ item.destination }}</td>
-                                    <td>{{ item.departure | minutesLeft}}</td><!-- | filter -->
+                                    <td>{{ item.departure | minutesLeft}}</td>
                                 </tr>
                             </tbody>
                         </table>

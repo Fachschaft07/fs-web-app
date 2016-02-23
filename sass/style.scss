@@ -8,6 +8,12 @@ main {
 	flex: 1 0 auto;
 }
 
+.container {
+  h4.center.title {
+    font-weight: 500 !important;
+  }
+}
+
 .padding-card {
   padding: 0px 10px 10px 10px;
 }
@@ -55,7 +61,7 @@ main {
 .relative-action-btn {
   position: absolute;
   top: 70px;
-  right: 30px;
+  right: 15px;
 }
 
 .faded-line {

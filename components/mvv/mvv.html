@@ -12,32 +12,32 @@
     </div>
 
     <div class="col s12 m8 offset-m2 l6 offset-l3">
-      <table id="lothstr" style="'width: 100%';">
+      <table id="lothstr">
         <thead>
         <th>Linie</th>
         <th>Richtung</th>
-        <th class='right'>Abfahrt (in Min.)</th>
+        <th class='right'>Abfahrt</th>
         </thead>
         <tbody ng-repeat="traffic in mvv.lothstr">
         <tr>
-          <td>{{ traffic.line }}</td>
-          <td>{{ traffic.destination }}</td>
-          <td class="right">{{ traffic.departure | minutesLeft }}</td>
+          <td><img ng-src="images/mvv/{{ traffic.line }}.jpg" alt="{{ traffic.line }}"/></td>
+          <td>{{ traffic.destination | limitTo: (traffic.destination.length - 2) }}</td>
+          <td class="right">in {{ traffic.departure | minutesLeft }} min</td>
         </tr>
         </tbody>
       </table>
 
-      <table id="pasing" style="'width: 100%';">
+      <table id="pasing">
         <thead>
         <th>Linie</th>
         <th>Richtung</th>
-        <th class='right'>Abfahrt (in Min.)</th>
+        <th class='right'>Abfahrt</th>
         </thead>
         <tbody ng-repeat="traffic in mvv.pasing">
         <tr>
-          <td>{{ traffic.line }}</td>
-          <td>{{ traffic.destination }}</td>
-          <td class="right">{{ traffic.departure | minutesLeft }}</td>
+          <td><img ng-src="images/mvv/{{ traffic.line }}.jpg" alt="{{ traffic.line }}"/></td>
+          <td>{{ traffic.destination | limitTo: (traffic.destination.length - 2) }}</td>
+          <td class="right">in {{ traffic.departure | minutesLeft }} min</td>
         </tr>
         </tbody>
       </table>

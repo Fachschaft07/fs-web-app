@@ -1,17 +1,22 @@
-    <!-- Page Layout here -->
-	<div class="container">
-		<h3 class="center">Mensa</h3>
-		
-		<div class="row">
-			<div class="col s12 m8 offset-m2 l6 offset-l3">
-				<ul class="collection with-header flow-text" ng-repeat="(key, value) in mensa.meals | groupBy: 'date'">
-				    <li class="collection-header">
-				        <b>{{ key | date:'dd.MM.yyyy'}}</b>
-				    </li>
-				    <li class='collection-header' ng-repeat="item in value">
-				        {{ item.name }}
-				    </li>
-				</ul>
-			</div>
-		</div>
-	</div>
+<!-- Page Layout here -->
+<div class="container">
+  <h3 class="center" ng-if="mensa.meals.length">Mensa</h3>
+
+  <div class="row" ng-if="mensa.meals.length">
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
+      <ul class="collection with-header flow-text" ng-repeat="(key, value) in mensa.meals | groupBy: 'date'">
+        <li class="collection-header">
+          <b>{{ key | date:'dd.MM.yyyy'}}</b>
+        </li>
+        <li class='collection-header' ng-repeat="item in value">
+          {{ item.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row center jumbotron" ng-if="!mensa.meals.length">
+    <h4>Kein Menü der Mensa gefunden.</h4>
+  </div>
+
+</div>

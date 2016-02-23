@@ -1,19 +1,20 @@
 <!-- Page Layout here -->
 <div class="container">
-    <h3 class="center">Fundsachen</h3>
+  <h3 class="center">Fundsachen</h3>
 
-    <div class="row">
-        <div class="col s12 m8 offset-m2 l6 offset-l3">
-            <div class="card flow-text white" ng-repeat="(key, value) in lostfound.list | groupBy: 'date'">
-                <div class="card-content black-text">
-                    <div class='card-title'>
-                        <b>{{ key| date:'dd.MM.yyyy' }}</b>
-                    </div>
-                    <p ng-repeat="item in value">
-                        {{ item.subject }}
-                    </p>
-                </div>
-            </div>
+  <div class="row">
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
+      <div class="card flow-text white" ng-repeat="(key, value) in lostfound.list | groupBy: 'date'">
+        <div class="card-content black-text">
+          <div class='card-title'>
+            <b>{{ key| date:'dd.MM.yyyy' }}</b>
+          </div>
+          <p ng-repeat="item in value">
+            {{ item.subject }}
+          </p>
         </div>
+      </div>
     </div>
+  </div>
+
 </div>

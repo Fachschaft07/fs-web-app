@@ -1,15 +1,15 @@
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 main {
-	flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
 .container {
-  h4.center.title {
+  h4.center {
     font-weight: 500 !important;
   }
 }
@@ -46,6 +46,7 @@ main {
   }
 
 }
+
 .small {
   font-size: 1.2em !important;
   line-height: 25px;
@@ -54,6 +55,7 @@ main {
 .btn-margin-bottom {
   margin-bottom: 1rem;
 }
+
 .btn-margin-top {
   margin-top: 1rem;
 }

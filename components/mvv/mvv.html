@@ -1,42 +1,47 @@
 <!-- Page Layout here -->
 <div class="container">
-    <h3 class="center">MVV</h3>
-    <div class="row flow-text">
-       <div class="col s12 m8 offset-m2 l6 offset-l3">
-          <ul class="tabs" tabs>
-            <li class="tab col s2"><a href="#lothstr">Lothstraße</a></li>
-            <li class="tab col s2"><a href="#pasing">Pasing</a></li>
-          </ul>
-        </div>
-        <div class="col s12 m8 offset-m2 l6 offset-l3">
-            <table id="lothstr" style="'width: 100%';">
-               <thead>
-                    <th>Linie</th>
-                    <th>Richtung</th>
-                    <th class='right'>Abfahrt (in Min.)</th>
-                </thead>
-                <tbody ng-repeat="traffic in mvv.lothstr">
-                    <tr>
-                        <td>{{ traffic.line }}</td>
-                        <td>{{ traffic.destination }}</td>
-                        <td class="right">{{ traffic.departure | minutesLeft }}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <table id="pasing" style="'width: 100%';">
-               <thead>
-                    <th>Linie</th>
-                    <th>Richtung</th>
-                    <th class='right'>Abfahrt (in Min.)</th>
-                </thead>
-                <tbody ng-repeat="traffic in mvv.pasing">
-                    <tr>
-                        <td>{{ traffic.line }}</td>
-                        <td>{{ traffic.destination }}</td>
-                        <td class="right">{{ traffic.departure | minutesLeft }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+  <h3 class="center">MVV</h3>
+
+  <div class="row flow-text">
+
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
+      <ul class="tabs" tabs>
+        <li class="tab col s2"><a href="#lothstr">Lothstraße</a></li>
+        <li class="tab col s2"><a href="#pasing">Pasing</a></li>
+      </ul>
     </div>
+
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
+      <table id="lothstr" style="'width: 100%';">
+        <thead>
+        <th>Linie</th>
+        <th>Richtung</th>
+        <th class='right'>Abfahrt (in Min.)</th>
+        </thead>
+        <tbody ng-repeat="traffic in mvv.lothstr">
+        <tr>
+          <td>{{ traffic.line }}</td>
+          <td>{{ traffic.destination }}</td>
+          <td class="right">{{ traffic.departure | minutesLeft }}</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <table id="pasing" style="'width: 100%';">
+        <thead>
+        <th>Linie</th>
+        <th>Richtung</th>
+        <th class='right'>Abfahrt (in Min.)</th>
+        </thead>
+        <tbody ng-repeat="traffic in mvv.pasing">
+        <tr>
+          <td>{{ traffic.line }}</td>
+          <td>{{ traffic.destination }}</td>
+          <td class="right">{{ traffic.departure | minutesLeft }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
 </div>

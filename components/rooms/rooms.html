@@ -1,7 +1,6 @@
-{{ vm.day }}
 <!-- Page Layout here -->
 <div class="container">
-  <h3 class="center">Raumsuche</h3>
+  <h4 class="center">Raumsuche</h4>
 
   <div class="row">
     <div class="col s12 m8 offset-m2 l6 offset-l3 card-panel padding-card-input">
@@ -30,13 +29,13 @@
         <label>Uhrzeit</label>
       </div>
       <div class="input-field col s12 m4">
-          <select ng-model="rooms.type" ng-change="rooms.getRooms()" material-select watch>
-              <option value="" selected>Alle</option>
-              <option value="AUDITORIUM">Auditorium</option>
-              <option value="LABORATORY">Labor</option>
-              <option value="LOUNGE">Lounge</option>
-          </select>
-          <label>Typ</label>
+        <select ng-model="rooms.type" ng-change="rooms.getRooms()" material-select watch>
+          <option value="" selected>Alle</option>
+          <option value="AUDITORIUM">Auditorium</option>
+          <option value="LABORATORY">Labor</option>
+          <option value="LOUNGE">Lounge</option>
+        </select>
+        <label>Typ</label>
       </div>
     </div>
   </div>
@@ -44,20 +43,20 @@
   <div class="row">
     <div class="col s12 m8 offset-m2 l6 offset-l3">
       <div class="flow-text">
-      <table style='width: 100%;'>
-        <thead>
+        <table style='width: 100%;'>
+          <thead>
           <th>Raum</th>
           <th>Frei bis</th>
           <th class="center">Typ</th>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
           <tr ng-repeat="item in rooms.list">
-              <td>{{ item.name }}</td>
-              <td>{{ item.time | date:'HH:mm' }} Uhr</td>
-              <td class="center">{{ item.roomType }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.time | date:'HH:mm' }} Uhr</td>
+            <td class="center">{{ item.roomType }}</td>
           </tr>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

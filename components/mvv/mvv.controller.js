@@ -29,7 +29,7 @@
     }
 
     function startInterval() {
-      promise = $interval(getTransportTraffic, 1000);
+      promise = $interval(getTransportTraffic, 20000);
     }
 
     // Destroy Interval on state change

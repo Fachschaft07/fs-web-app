@@ -10,8 +10,8 @@
     mvv.pasing = [];
 
     var promise;
-    var getTransportTraffic = getTransportTraffic;
 
+    getTransportTraffic();
     startInterval();
 
     /////////////////////////////////////////////////////

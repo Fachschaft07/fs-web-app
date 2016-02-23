@@ -4,14 +4,17 @@
 
   <div class="row" ng-if="mensa.meals.length">
     <div class="col s12 m8 offset-m2 l6 offset-l3">
-      <ul class="collection with-header flow-text" ng-repeat="(key, value) in mensa.meals | groupBy: 'date'">
-        <li class="collection-header">
+      <div ng-repeat="(key, value) in mensa.meals | groupBy: 'date'">
+        <div class="list-title">
           <b>{{ key | date:'dd.MM.yyyy'}}</b>
-        </li>
-        <li class='collection-header' ng-repeat="item in value">
-          {{ item.name }}
-        </li>
-      </ul>
+        </div>
+        <div class='' ng-repeat="item in value">
+          <div class="list-item">
+            <div class="circle"><span class="text" ng-class="item.type | lowercase">{{ item.type }}</span></div>
+            <div class="title">{{ item.name }}</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

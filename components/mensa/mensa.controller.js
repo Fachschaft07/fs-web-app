@@ -15,7 +15,7 @@
     function getMensaMenus() {
       dataFactory.getMensaMeal({location: 'MENSA_LOTHSTRASSE'})
           .then(function (result) {
-            mensa.melas = result.data;
+            mensa.meals = result.data;
           })
     }
   }

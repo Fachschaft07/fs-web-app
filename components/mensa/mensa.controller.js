@@ -7,6 +7,7 @@
   function MensaController(dataFactory) {
     var mensa = this;
     mensa.meals = [];
+    mensa.modalItem = [];
 
     getMensaMenus();
 
@@ -18,5 +19,6 @@
             mensa.meals = result.data;
           })
     }
+
   }
 })();

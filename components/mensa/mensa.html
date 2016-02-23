@@ -4,17 +4,27 @@
 
   <div class="row" ng-if="mensa.meals.length">
     <div class="col s12 m8 offset-m2 l6 offset-l3">
+
       <div ng-repeat="(key, value) in mensa.meals | groupBy: 'date'">
         <div class="list-title">
           <b>{{ key | date:'dd.MM.yyyy'}}</b>
         </div>
-        <div class='' ng-repeat="item in value">
+        <div ng-repeat="item in value" href='#demoModal_{{$index}}' ng-click="mensa.modalItem = item.additives" modal>
           <div class="list-item">
             <div class="circle"><span class="text" ng-class="item.type | lowercase">{{ item.type }}</span></div>
             <div class="title">{{ item.name }}</div>
           </div>
+
+          <div id="demoModal_{{$index}}" class="modal">
+            <div class="modal-content">
+              <h4>Zusatzmittel</h4>
+              <p ng-repeat="additive in mensa.modalItem" ng-if="mensa.modalItem.length">mit {{additive}}</p>
+              <p ng-hide="mensa.modalItem.length">Keine Zusatzmittel</p>
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 

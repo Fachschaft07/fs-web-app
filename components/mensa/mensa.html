@@ -7,19 +7,23 @@
 
       <div ng-repeat="(key, value) in mensa.meals | groupBy: 'date'">
         <div class="list-title">
-          <b>{{ key | date:'dd.MM.yyyy'}}</b>
+          <b>{{ key | date: 'EEEE' | uppercase | translateWeekday }}, {{ key | date:'dd.MM.yyyy'}}</b>
         </div>
-        <div ng-repeat="item in value" href='#demoModal_{{$index}}' ng-click="mensa.modalItem = item.additives" modal>
-          <div class="list-item">
+        <div ng-repeat="item in value">
+          <div class="list-item" href='#additiveModal_{{$index}}' ng-click="mensa.setModalItem(item)" modal>
             <div class="circle"><span class="text" ng-class="item.type | lowercase">{{ item.type }}</span></div>
             <div class="title">{{ item.name }}</div>
           </div>
 
-          <div id="demoModal_{{$index}}" class="modal">
-            <div class="modal-content">
-              <h4>Zusatzmittel</h4>
-              <p ng-repeat="additive in mensa.modalItem" ng-if="mensa.modalItem.length">mit {{additive}}</p>
-              <p ng-hide="mensa.modalItem.length">Keine Zusatzmittel</p>
+          <div id="additiveModal_{{$index}}" class="modal">
+            <div class="modal-content modal-center">
+              <h5>{{mensa.modalTitle}}</h5>
+              <hr class="style-one">
+              <section ng-if="mensa.modalAdditives.length">
+                <h6 class="header">Zusatzstoffe:</h6>
+                <p ng-repeat="additive in mensa.modalAdditives">mit {{ additive | capitalize }}</p>
+              </section>
+              <p ng-hide="mensa.modalAdditives.length">Ohne Zusatzstoffe</p>
             </div>
           </div>
         </div>

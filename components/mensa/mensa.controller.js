@@ -7,7 +7,8 @@
   function MensaController(dataFactory) {
     var mensa = this;
     mensa.meals = [];
-    mensa.modalItem = [];
+
+    mensa.setModalItem = setModalItem;
 
     getMensaMenus();
 
@@ -18,6 +19,11 @@
           .then(function (result) {
             mensa.meals = result.data;
           })
+    }
+
+    function setModalItem(item) {
+      mensa.modalAdditives = item.additives;
+      mensa.modalTitle = item.name;
     }
 
   }

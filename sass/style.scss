@@ -1,3 +1,10 @@
+$prim-color: #23C923;
+$sec-color: #C80A4B;
+$third-color: #326FDF;
+
+
+$font-gray: #c8c8c8;
+
 body {
   display: flex;
   min-height: 100vh;
@@ -23,7 +30,6 @@ main {
 }
 
 .card {
-
   .card-header {
     font-size: 1.2em;
     font-weight: 600;
@@ -44,7 +50,6 @@ main {
   .secondary-content {
     margin-top: 1rem !important;
   }
-
 }
 
 .small {
@@ -150,4 +155,25 @@ hr.style-one {
   border: 0;
   height: 1px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0));
+}
+
+/* Blackboard List */
+span.title {
+  display: block;
+
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+span.subtitle {
+  display: block;
+
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-color: $font-gray;
+  line-height: 1.5;
+}
+p.text {
+  font-size: 1.1rem;
+  font-weight: 300;
+  text-align: justify;
 }

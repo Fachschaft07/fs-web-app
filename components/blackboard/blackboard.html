@@ -39,10 +39,10 @@
         ng-repeat="item in blackboard.blackBoardEntries | filter:blackboard.searchbar | orderBy:'-publish'">
       <li>
         <div class="collapsible-header flow-text">
-          <b>{{ item.subject }}</b><br/>
-          von {{ item.author.name }} am {{ item.publish | date:'dd.MM.yyyy' }} veröffentlicht
+          <span class="title">{{ item.subject }}</span>
+          <span class="subtitle">von {{ item.author.name }} am {{ item.publish | date:'dd.MM.yyyy' }} veröffentlicht</span>
         </div>
-        <p class="collapsible-body flow-text" ng-bind-html="item.text"></p>
+        <p class="collapsible-body flow-text text" ng-bind-html="item.text"></p>
       </li>
     </ul>
   </div>

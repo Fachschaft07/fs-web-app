@@ -1,0 +1,39 @@
+<!-- Page Layout here -->
+<div class="container">
+  <h3 class="center" ng-if="mensa.meals.length">Mensa</h3>
+
+  <div class="row" ng-if="mensa.meals.length">
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
+
+      <div ng-repeat="(key, value) in mensa.meals | groupBy: 'date'">
+        <div class="list-title">
+          <b>{{ key | date: 'EEEE' | uppercase | translateWeekday }}, {{ key | date:'dd.MM.yyyy'}}</b>
+        </div>
+        <div ng-repeat="item in value">
+          <div class="list-item" href='#additiveModal_{{$index}}' ng-click="mensa.setModalItem(item)" modal>
+            <div class="circle"><span class="text" ng-class="item.type | lowercase">{{ item.type }}</span></div>
+            <div class="title">{{ item.name }}</div>
+          </div>
+
+          <div id="additiveModal_{{$index}}" class="modal">
+            <div class="modal-content modal-center">
+              <h5>{{mensa.modalTitle}}</h5>
+              <hr class="style-one">
+              <section ng-if="mensa.modalAdditives.length">
+                <h6 class="header">Zusatzstoffe:</h6>
+                <p ng-repeat="additive in mensa.modalAdditives">mit {{ additive | capitalize }}</p>
+              </section>
+              <p ng-hide="mensa.modalAdditives.length">Ohne Zusatzstoffe</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row center jumbotron" ng-if="!mensa.meals.length">
+    <h4>Keine Angebote der Mensa gefunden.</h4>
+  </div>
+
+</div>

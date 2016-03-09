@@ -1,0 +1,94 @@
+<!-- Page Layout here -->
+<div class="container">
+  <h3 class="center">Stundenplan</h3>
+  <!-- Timetable for Desktop -->
+  <div class="row">
+    <div class="col s12 l6">
+      <div class="row">
+
+        <div class="col s12">
+          <div class="card-panel center">
+            <a ng-click="console.log(editor);" class="waves-effect waves-light btn red lighten-1 btn-margin-bottom">
+              <i class="material-icons left">save</i>Save to Google Drive
+            </a>
+            <a ng-click="editor.saveTimetable()" class="waves-effect waves-light btn blue accent-2 btn-margin-bottom">
+              <i class="material-icons left">save</i>Save local
+            </a>
+            <div input-field>
+              <i class="material-icons prefix">search</i>
+              <input type="text" class="validate" ng-model="editor.searchbar"
+                     ng-change="editor.getModules()" maxlength="4">
+              <label>Studiengruppe</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12" ng-repeat="module in editor.list">
+          <div class="card fff padding-card">
+            <div class="card-content black-text">
+              <span class="card-title small">{{ module.module.name }}</span>
+              <p class="secondary-content">
+                <input type="checkbox" id="checkbox_{{module.module.id}}_{{module.teacher.id}}"
+                       ng-model="editor.checked[$index]" ng-change="editor.toggleModule(module, $index)"/>
+                <label for="checkbox_{{module.module.id}}_{{module.teacher.id}}"></label>
+              </p>
+              <p>{{ module.teacher.name }}</p>
+            </div>
+            <div input-field ng-if="module.groups.length">
+              <select material-select ng-model="editor.praktikum[$index]"
+                      ng-change="editor.practicalChanged(module, $index, editor.praktikum[$index])"
+                      ng-options="value for value in module.groups">
+                <option value="">bitte wählen</option>
+              </select>
+              <label>Praktikum</label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col s12 l6 card padding-card" ng-show="editor.timetableItems.length">
+      <div class="card-item">
+        <div class="card-header" ng-show="moduleMonday.length">Montag</div>
+        <div ng-repeat="item in moduleMonday = (editor.timetableItems | filter: editor.mon | orderBy: 'date')">
+          {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} <span
+            ng-if="item.suffix">({{item.suffix}})</span> - {{ item.teacher.name }}
+        </div>
+      </div>
+
+      <div class="card-item">
+        <div class="card-header" ng-show="moduleTuesday.length">Dienstag</div>
+        <div ng-repeat="item in moduleTuesday = (editor.timetableItems | filter: editor.tue | orderBy: 'date')">
+          {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} <span
+            ng-if="item.suffix">({{item.suffix}})</span> - {{ item.teacher.name }}
+        </div>
+      </div>
+
+      <div class="card-item">
+        <div class="card-header" ng-show="moduleWednesday.length">Mittwoch</div>
+        <div ng-repeat="item in moduleWednesday = (editor.timetableItems | filter: editor.wed | orderBy: 'date')">
+          {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} <span
+            ng-if="item.suffix">({{item.suffix}})</span> - {{ item.teacher.name }}
+        </div>
+      </div>
+
+      <div class="card-item">
+        <div class="card-header" ng-show="moduleThursday.length">Donnerstag</div>
+        <div ng-repeat="item in moduleThursday = (editor.timetableItems | filter: editor.thurs | orderBy: 'date')">
+          {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} <span
+            ng-if="item.suffix">({{item.suffix}})</span> - {{ item.teacher.name }}
+        </div>
+      </div>
+
+      <div class="card-item">
+        <div class="card-header" ng-show="moduleFriday.length">Freitag</div>
+        <div ng-repeat="item in moduleFriday = (editor.timetableItems | filter: editor.fri | orderBy: 'date')">
+          {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} <span
+            ng-if="item.suffix">({{item.suffix}})</span> - {{ item.teacher.name }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

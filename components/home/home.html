@@ -1,0 +1,104 @@
+<div class="container">
+  <div class="row">
+    <!-- BLACKBOARD -->
+    <div class="col s12 m6" ng-if="home.blackboard.length">
+      <div class="card hoverable">
+        <div class="card-content">
+          <span class="card-title">Schwarzes Brett</span>
+          <ul class="flow-text" ng-repeat="item in home.blackboard">
+            <li>{{ item.subject }}</li>
+          </ul>
+          <ul class="flow-text" ng-if="!home.blackboard.length">
+            <li>Keine neuen Meldungen</li>
+          </ul>
+        </div>
+        <div class="card-action">
+          <a ui-sref="blackboard">Mehr anzeigen</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOLIDAYS -->
+    <div class="col s12 m6">
+      <div class="card hoverable red accent-2">
+        <div class="card-content white-text">
+          <span class="card-title">Ferien</span>
+          <div class="flow-text">
+            {{ home.nextHoliday.name }} in {{ home.nextHoliday.start | daysLeft }} Tagen
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MENSA -->
+    <div class="col s12 m6" ng-if="menu.length">
+      <div class="card hoverable green lighten-1">
+        <div class="card-content white-text">
+          <span class="card-title">Mensa</span>
+          <ul class="flow-text" ng-repeat="item in menu = (home.mensaMenu | today:home.mensaMenu)">
+            <li>{{ item.name }}</li>
+          </ul>
+        </div>
+        <div class="card-action">
+          <a ui-sref="mensa">Mehr anzeigen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!-- MVV - Lothstraße -->
+    <div class="col s12 m6">
+      <div class="card hoverable blue accent-2">
+        <div class="card-content white-text">
+          <span class="card-title">MVV - Lothstraße</span>
+          <div class="flow-text">
+            <table>
+              <thead>
+              <tr>
+                <th>Linie</th>
+                <th>Richtung</th>
+                <th>Abfahrt</th>
+              </tr>
+              </thead>
+              <tbody ng-repeat="item in home.trafficLothstr | limitTo:4">
+              <tr>
+                <td>{{ item.line }}</td>
+                <td>{{ item.destination | limitTo: (item.destination.length - 2) }}</td>
+                <td>{{ item.departure | minutesLeft }}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MVV - Pasing -->
+    <div class="col s12 m6">
+      <div class="card hoverable blue accent-2">
+        <div class="card-content white-text">
+          <span class="card-title">MVV - Pasing</span>
+          <div class="flow-text">
+            <table>
+              <thead>
+              <tr>
+                <th>Linie</th>
+                <th>Richtung</th>
+                <th>Abfahrt</th>
+              </tr>
+              </thead>
+              <tbody ng-repeat="item in home.trafficPasing | limitTo:4">
+              <tr>
+                <td>{{ item.line }}</td>
+                <td>{{ item.destination }}</td>
+                <td>{{ item.departure | minutesLeft}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<!-- Page Layout here -->
+<div class="container">
+  <h3 class="center">MVV</h3>
+
+  <div class="row flow-text">
+
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
+      <ul class="tabs" tabs>
+        <li class="tab col s2"><a href="#lothstr">Lothstraße</a></li>
+        <li class="tab col s2"><a href="#pasing">Pasing</a></li>
+      </ul>
+    </div>
+
+    <div class="col s12 m8 offset-m2 l6 offset-l3">
+      <table id="lothstr">
+        <thead>
+        <th>Linie</th>
+        <th>Richtung</th>
+        <th class='right'>Abfahrt</th>
+        </thead>
+        <tbody ng-repeat="traffic in mvv.lothstr">
+        <tr>
+          <td><img ng-src="images/mvv/{{ traffic.line }}.jpg" alt="{{ traffic.line }}"/></td>
+          <td>{{ traffic.destination | limitTo: (traffic.destination.length - 2) }}</td>
+          <td class="right">in {{ traffic.departure | minutesLeft }} min</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <table id="pasing">
+        <thead>
+        <th>Linie</th>
+        <th>Richtung</th>
+        <th class='right'>Abfahrt</th>
+        </thead>
+        <tbody ng-repeat="traffic in mvv.pasing">
+        <tr>
+          <td><img ng-src="images/mvv/{{ traffic.line }}.jpg" alt="{{ traffic.line }}"/></td>
+          <td>{{ traffic.destination | limitTo: (traffic.destination.length - 2) }}</td>
+          <td class="right">in {{ traffic.departure | minutesLeft }} min</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

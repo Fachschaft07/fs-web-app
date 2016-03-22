@@ -26,6 +26,7 @@
 
         // Directives
         'fsApp.developer.directive',
+        'fsApp.updatetitle.directive',
 
         // Services
         'fsApp.data.service',
@@ -42,6 +43,9 @@
     $stateProvider
         .state('home', {
           url: "/home",
+          data: {
+            pageTitle: 'HM - Fachschaft 07'
+          },
           views: {
             "navigation": {
               templateUrl: "components/navigation/navigation.html",
@@ -59,6 +63,9 @@
         })
         .state('blackboard', {
           url: "/blackboard",
+          data: {
+            pageTitle: 'Schwarzes Brett'
+          },
           views: {
             "navigation": {
               templateUrl: "components/navigation/navigation.html",
@@ -76,6 +83,9 @@
         })
         .state('info', {
           url: "/info",
+          data: {
+            pageTitle: 'Information'
+          },
           views: {
             "navigation": {
               templateUrl: "components/navigation/navigation.html",
@@ -93,6 +103,9 @@
         })
         .state('jobs', {
           url: "/jobs",
+          data: {
+            pageTitle: 'Jobs'
+          },
           views: {
             "navigation": {
               templateUrl: "components/navigation/navigation.html",
@@ -110,6 +123,9 @@
         })
         .state('lostfound', {
           url: "/lostfound",
+          data: {
+            pageTitle: 'Fundsachen'
+          },
           views: {
             "navigation": {
               templateUrl: "components/navigation/navigation.html",
@@ -127,6 +143,9 @@
         })
         .state('mensa', {
           url: "/mensa",
+          data: {
+            pageTitle: 'Mensa'
+          },
           views: {
             "navigation": {
               templateUrl: "components/navigation/navigation.html",
@@ -144,6 +163,9 @@
         })
         .state('mvv', {
           url: "/mvv",
+          data: {
+            pageTitle: 'MVV'
+          },
           views: {
             "navigation": {
               templateUrl: "components/navigation/navigation.html",
@@ -161,6 +183,9 @@
         })
         .state('news', {
           url: "/news",
+          data: {
+            pageTitle: 'Neuigkeiten'
+          },
           views: {
             "navigation": {
               templateUrl: "components/navigation/navigation.html",
@@ -178,6 +203,9 @@
         })
         .state('rooms', {
           url: "/rooms",
+          data: {
+            pageTitle: 'Raumsuche'
+          },
           views: {
             "navigation": {
               templateUrl: "components/navigation/navigation.html",
@@ -195,6 +223,9 @@
         })
         .state('timetable', {
           url: "/timetable",
+          data: {
+            pageTitle: 'Stundenplan'
+          },
           views: {
             "navigation": {
               templateUrl: "components/navigation/navigation.html",
@@ -212,6 +243,9 @@
         })
         .state('editor', {
           url: "/editor",
+          data: {
+            pageTitle: 'Stundenplan'
+          },
           views: {
             "navigation": {
               templateUrl: "components/navigation/navigation.html",

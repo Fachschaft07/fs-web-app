@@ -45,20 +45,18 @@
       </div>
     </div>
 
+    <!-- LOSTFOUND -->
     <div class="col s12 m6">
-      <div class="card hoverable green lighten-1">
+      <div class="card hoverable green lighten-1" ui-sref="lostfound">
         <div class="card-content white-text">
-          <span class="card-title">Fundsachen</span>
-          <ul class="flow-text">
-            <li>Aktuell liegen {{ home.lostfound.length }} Fundsachen zur Abholung bereit.</li>
-          </ul>
-        </div>
-        <div class="card-action">
-          <a ui-sref="lostfound">Mehr anzeigen</a>
+          <div class="flow-text">
+            Aktuell liegen {{ home.lostfound.length }} Fundsachen zur Abholung bereit.
+          </div>
         </div>
       </div>
     </div>
   </div>
+
   <div class="row">
     <!-- MVV - Lothstraße -->
     <div class="col s12 m6">

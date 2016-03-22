@@ -157,6 +157,15 @@ hr.style-one {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0));
 }
 
+/* Sidenav*/
+#nav-mobile, .button-collapse {
+  display: block !important; //collapse also on large screen
+}
+
+.brand-logo {
+  margin-left: 2em;
+}
+
 /* Blackboard List */
 span.title {
   display: block;

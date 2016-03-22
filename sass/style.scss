@@ -161,9 +161,10 @@ hr.style-one {
 #nav-mobile, .button-collapse {
   display: block !important; //collapse also on large screen
 }
-
-.brand-logo {
-  margin-left: 2em;
+@media screen and (min-width : 993px) {
+  .brand-logo {
+    margin-left: 2em;
+  }
 }
 
 /* Blackboard List */

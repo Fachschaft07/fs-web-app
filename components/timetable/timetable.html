@@ -29,10 +29,10 @@
 
       <!-- Monday -->
       <div id="mon" class="col s12">
-        <div ng-repeat="(key, value) in timetable.items.mon | groupBy: 'date'">
+        <div ng-repeat="(key, value) in timetable.items.mon | orderBy: 'date' | groupBy: 'date'">
           <div class="timetable-header">{{ key | date:'HH:mm' }} Uhr</div>
 
-          <div class="timetable-item" ng-repeat="item in value | orderBy: 'date'">
+          <div class="timetable-item" ng-repeat="item in value">
             {{ item.module.name }} <span ng-if="item.suffix">({{item.suffix}})</span>
               - {{ item.room }} - {{ item.teacher.name }}
           </div>
@@ -41,10 +41,10 @@
 
       <!-- Tuesday -->
       <div id="tue" class="col s12">
-        <div ng-repeat="(key, value) in timetable.items.tue | groupBy: 'date'">
+        <div ng-repeat="(key, value) in timetable.items.tue | orderBy: 'date' | groupBy: 'date'">
           <div class="timetable-header">{{ key | date:'HH:mm' }} Uhr</div>
 
-          <div class="timetable-item" ng-repeat="item in value | orderBy: 'date'">
+          <div class="timetable-item" ng-repeat="item in value">
             {{ item.module.name }} <span ng-if="item.suffix">({{item.suffix}})</span>
             - {{ item.room }} - {{ item.teacher.name }}
           </div>
@@ -53,10 +53,10 @@
 
       <!-- Wednesday -->
       <div id="wed" class="col s12">
-        <div ng-repeat="(key, value) in timetable.items.wed | groupBy: 'date'">
+        <div ng-repeat="(key, value) in timetable.items.wed | orderBy: 'date' | groupBy: 'date'">
           <div class="timetable-header">{{ key | date:'HH:mm' }} Uhr</div>
 
-          <div class="timetable-item" ng-repeat="item in value | orderBy: 'date'">
+          <div class="timetable-item" ng-repeat="item in value">
             {{ item.module.name }} <span ng-if="item.suffix">({{item.suffix}})</span>
             - {{ item.room }} - {{ item.teacher.name }}
           </div>
@@ -65,10 +65,10 @@
 
       <!-- Thursday -->
       <div id="thurs" class="col s12">
-        <div ng-repeat="(key, value) in timetable.items.thurs | groupBy: 'date'">
+        <div ng-repeat="(key, value) in timetable.items.thurs | orderBy: 'date' | groupBy: 'date'">
           <div class="timetable-header">{{ key | date:'HH:mm' }} Uhr</div>
 
-          <div class="timetable-item" ng-repeat="item in value | orderBy: 'date'">
+          <div class="timetable-item" ng-repeat="item in value">
             {{ item.module.name }} <span ng-if="item.suffix">({{item.suffix}})</span>
             - {{ item.room }} - {{ item.teacher.name }}
           </div>
@@ -77,10 +77,10 @@
 
       <!-- Friday -->
       <div id="fri" class="col s12">
-        <div ng-repeat="(key, value) in timetable.items.fri | groupBy: 'date'">
+        <div ng-repeat="(key, value) in timetable.items.fri | orderBy: 'date' | groupBy: 'date'">
           <div class="timetable-header">{{ key | date:'HH:mm' }} Uhr</div>
 
-          <div class="timetable-item" ng-repeat="item in value | orderBy: 'date'">
+          <div class="timetable-item" ng-repeat="item in value">
             {{ item.module.name }} <span ng-if="item.suffix">({{item.suffix}})</span>
             - {{ item.room }} - {{ item.teacher.name }}
           </div>

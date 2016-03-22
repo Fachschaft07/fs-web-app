@@ -1,4 +1,4 @@
-<div>
+<div ng-if="timetable.countItems">
   <div class="relative-action-btn">
     <a class="btn-floating btn-small waves-effect waves-light orange" ui-sref="editor"><i class="material-icons">mode_edit</i></a>
   </div>
@@ -7,16 +7,7 @@
   <div class="container">
     <h4 class="center">Stundenplan</h4>
 
-    <div class="container">
-      <div class="row center jumbotron" ng-if="timetable.countItems === 0">
-        <h4>Es wurde noch kein Stundenplan erstellt.</h4>
-        <button class="btn btn-large red lighten-1 waves-effect waves-light" ui-sref="editor">Stundenplan erstellen
-          <i class="material-icons right">mode_edit</i>
-        </button>
-      </div>
-    </div>
-
-    <div class="row" ng-if="timetable.countItems > 0">
+    <div class="row">
       <div class="col s12">
         <ul class="tabs" tabs>
           <li class="tab col" ng-class="{ 'disabled' : timetable.items.mon.length == 0 }">
@@ -98,5 +89,14 @@
       </div>
     </div>
 
+  </div>
+</div>
+
+<div class="container">
+  <div class="row center jumbotron" ng-if="!timetable.countItems">
+    <h4>Es wurde noch kein Stundenplan erstellt.</h4>
+    <button class="btn btn-large red lighten-1 waves-effect waves-light" ui-sref="editor">Stundenplan erstellen
+      <i class="material-icons right">mode_edit</i>
+    </button>
   </div>
 </div>

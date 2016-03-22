@@ -39,9 +39,9 @@
 
                 for (var i = 0; i < result.data.length; i++) {
                   var date = new Date();
-                  date.setHours(result.data[i].hour);
-                  date.setMinutes(result.data[i].minute);
-                  result.data[i].date = date;
+                  date.setHours(parseInt(result.data[i].hour));
+                  date.setMinutes(parseInt(result.data[i].minute));
+                  result.data[i].date = date.getTime();
 
                   // Set timetable array for each day
                   divideDataIntoDays(result.data[i]);

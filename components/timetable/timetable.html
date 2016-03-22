@@ -1,4 +1,4 @@
-<div ng-if="timetable.countItems > 0">
+<div>
   <div class="relative-action-btn">
     <a class="btn-floating btn-small waves-effect waves-light orange" ui-sref="editor"><i class="material-icons">mode_edit</i></a>
   </div>
@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" ng-if="timetable.countItems > 0">
       <div class="col s12">
         <ul class="tabs" tabs>
           <li class="tab col" ng-class="{ 'disabled' : timetable.items.mon.length == 0 }">

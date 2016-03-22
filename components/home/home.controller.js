@@ -24,6 +24,7 @@
       transportTimetableLothstr();
       transportTimetablePasing();
       getHolidays();
+      getLostFound();
     }
 
     function blackboard() {
@@ -74,6 +75,13 @@
           break;
         }
       }
+    }
+
+    function getLostFound() {
+      dataFactory.getLostFound()
+          .then(function (result) {
+            home.lostfound = result.data;
+          })
     }
 
   }

@@ -4,29 +4,30 @@
   </div>
 
   <!-- Page Layout here -->
-  <div class="container">
-    <h4 class="center">Stundenplan</h4>
+  <h4 class="center">Stundenplan</h4>
 
-    <div class="row">
-      <div class="col s12">
-        <ul class="tabs" tabs>
-          <li class="tab col" ng-class="{ 'disabled' : timetable.items.mon.length == 0 }">
-            <a class="active" href="#mon">Mo</a>
-          </li>
-          <li class="tab col" ng-class="{ 'disabled' : timetable.items.tue.length == 0 }">
-            <a href="#tue">Di</a>
-          </li>
-          <li class="tab col" ng-class="{ 'disabled' : timetable.items.wed.length == 0 }">
-            <a href="#wed">Mi</a>
-          </li>
-          <li class="tab col" ng-class="{ 'disabled' : timetable.items.thurs.length == 0 }">
-            <a href="#thurs">Do</a>
-          </li>
-          <li class="tab col" ng-class="{ 'disabled' : timetable.items.fri.length == 0 }">
-            <a href="#fri">Fr</a>
-          </li>
-        </ul>
-      </div>
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs" tabs>
+        <li class="tab col s2" ng-class="{ 'disabled' : timetable.items.mon.length == 0 }">
+          <a class="active" href="#mon">Mo</a>
+        </li>
+        <li class="tab col s2" ng-class="{ 'disabled' : timetable.items.tue.length == 0 }">
+          <a href="#tue">Di</a>
+        </li>
+        <li class="tab col s2" ng-class="{ 'disabled' : timetable.items.wed.length == 0 }">
+          <a href="#wed">Mi</a>
+        </li>
+        <li class="tab col s2" ng-class="{ 'disabled' : timetable.items.thurs.length == 0 }">
+          <a href="#thurs">Do</a>
+        </li>
+        <li class="tab col s2" ng-class="{ 'disabled' : timetable.items.fri.length == 0 }">
+          <a href="#fri">Fr</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="container">
 
       <!-- Monday -->
       <div id="mon" class="col s12">

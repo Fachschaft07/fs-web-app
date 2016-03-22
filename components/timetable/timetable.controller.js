@@ -14,6 +14,8 @@
     timetable.items.thurs = [];
     timetable.items.fri = [];
 
+    timetable.today = new Date().getDay();
+
     init();
 
     ///////////////////////////////////////

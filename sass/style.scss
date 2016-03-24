@@ -214,16 +214,16 @@ p.text {
   -webkit-align-items: flex-start;
   flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
-
 }
 
 .grid-cell {
-  flex: 1;
+  flex: auto;
   margin: 0.1rem 0.8rem;
 }
 @media screen and (min-width : 776px) {
   .grid-cell {
     flex: 1 auto;
+    -webkit-flex: 1 auto;
   }
 }
 

@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="row">
+  <div class="grid" flex ng-cloak>
     <!-- BLACKBOARD -->
-    <div class="col s12 m6" ng-if="home.blackboard.length">
+    <div class="grid-cell" ng-if="home.blackboard.length">
       <div class="card hoverable">
         <div class="card-content">
           <span class="card-title">Schwarzes Brett</span>
@@ -19,7 +19,7 @@
     </div>
 
     <!-- HOLIDAYS -->
-    <div class="col s12 m6">
+    <div class="grid-cell">
       <div class="card hoverable red accent-2">
         <div class="card-content white-text">
           <span class="card-title">Ferien</span>
@@ -31,7 +31,7 @@
     </div>
 
     <!-- MENSA -->
-    <div class="col s12 m6" ng-if="menu.length">
+    <div class="grid-cell" ng-if="menu.length">
       <div class="card hoverable green lighten-1">
         <div class="card-content white-text">
           <span class="card-title">Mensa</span>
@@ -46,7 +46,7 @@
     </div>
 
     <!-- LOSTFOUND -->
-    <div class="col s12 m6">
+    <div class="grid-cell">
       <div class="card hoverable green lighten-1" ui-sref="lostfound">
         <div class="card-content white-text">
           <div class="flow-text">
@@ -57,7 +57,7 @@
     </div>
 
     <!-- FS NEWS -->
-    <div class="col s12 m6" ng-if="home.fsnews.length">
+    <div class="grid-cell" ng-if="home.fsnews.length">
       <div class="card hoverable">
         <div class="card-content">
           <span class="card-title">FS News</span>
@@ -73,11 +73,9 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="row">
     <!-- MVV - Lothstraße -->
-    <div class="col s12 m6">
+    <div class="grid-cell">
       <div class="card hoverable blue accent-2">
         <div class="card-content white-text">
           <span class="card-title">MVV - Lothstraße</span>
@@ -104,7 +102,7 @@
     </div>
 
     <!-- MVV - Pasing -->
-    <div class="col s12 m6">
+    <div class="grid-cell">
       <div class="card hoverable blue accent-2">
         <div class="card-content white-text">
           <span class="card-title">MVV - Pasing</span>
@@ -129,6 +127,6 @@
         </div>
       </div>
     </div>
-
   </div>
+
 </div>

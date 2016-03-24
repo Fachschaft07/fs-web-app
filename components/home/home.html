@@ -55,6 +55,24 @@
         </div>
       </div>
     </div>
+
+    <!-- FS NEWS -->
+    <div class="col s12 m6" ng-if="home.fsnews.length">
+      <div class="card hoverable">
+        <div class="card-content">
+          <span class="card-title">FS News</span>
+          <ul class="flow-text" ng-repeat="item in home.fsnews | orderBy:'date' | limitTo:4">
+            <li>{{ item.title }}</li>
+          </ul>
+          <ul class="flow-text" ng-if="!home.fsnews.length">
+            <li>Keine neuen Meldungen</li>
+          </ul>
+        </div>
+        <div class="card-action">
+          <a href="#">Mehr anzeigen</a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="row">

@@ -62,7 +62,12 @@
           }
 
           dataFactory.getLesson = function (params) {
-            var url = urlBase + "timetable/lessons"
+            var url = urlBase + "timetable/lessons";
+            return get(url, params);
+          }
+
+          dataFactory.getFSNews = function (params) {
+            var url = urlBase + "fs/news";
             return get(url, params);
           }
 

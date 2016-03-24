@@ -25,6 +25,7 @@
       transportTimetablePasing();
       getHolidays();
       getLostFound();
+      getFSNews();
     }
 
     function blackboard() {
@@ -81,6 +82,14 @@
       dataFactory.getLostFound()
           .then(function (result) {
             home.lostfound = result.data;
+          })
+    }
+
+    function getFSNews() {
+      dataFactory.getFSNews()
+          .then(function (result) {
+            home.fsnews = result.data;
+            console.log(result.data);
           })
     }
 

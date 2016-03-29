@@ -9,8 +9,8 @@
       {
         language: 'Web-Entwickler',
         developers: [
-          {name: 'Fabio Hellmann'},
-          {name: 'Benjamin Arnold'}
+          {name: 'Benjamin Arnold'},
+          {name: 'Fabio Hellmann'}
         ]
       },
       {
@@ -24,6 +24,13 @@
         language: 'iOS-Entwickler',
         developers: [
           {name: 'Benjamin Reischböck', till: 'WS 2015'}
+        ]
+      },
+      {
+        language: 'Rest-Service-Entwickler',
+        developers: [
+          {name: 'Luca Spataro'},
+          {name: 'Fabio Hellmann'}
         ]
       }
     ]

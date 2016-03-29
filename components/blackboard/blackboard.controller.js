@@ -2,9 +2,9 @@
 (function () {
   angular
       .module('fsApp.blackboard', [])
-      .controller('BlackboardController', ['dataFactory', '$scope', '$timeout', BlackboardController]);
+      .controller('BlackboardController', ['dataFactory', 'markdownFactory', '$scope', '$timeout', BlackboardController]);
 
-  function BlackboardController(dataFactory, $scope, $timeout) {
+  function BlackboardController(dataFactory, markdownFactory, $scope, $timeout) {
     var blackboard = this;
     blackboard.blackBoardEntries = [];
     blackboard.getBlackBoard = getBlackBoard;
@@ -14,6 +14,9 @@
     ///////////////////////////////////
     function getBlackBoard() {
       dataFactory.getBlackboard({group: blackboard.group})
+          .each(function (item) {
+            item.text = markdownFactory.toMarkdown(item.text);
+          })
           .then(function (result) {
             blackboard.blackBoardEntries = result.data;
           })

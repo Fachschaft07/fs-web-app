@@ -4,7 +4,7 @@
       .module('fsApp.data.service', [])
       .factory('dataFactory', [
         '$http', function ($http) {
-          var urlBase = 'http://fs.cs.hm.edu/rest/api/1/';
+          var urlBase = 'https://fs.cs.hm.edu/rest/api/1/';
           var dataFactory = {};
 
           function get(url, params) {

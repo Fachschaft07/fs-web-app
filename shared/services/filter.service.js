@@ -35,7 +35,6 @@
       })
       .filter('translateWeekday', function () {
         return function (item) {
-          var day;
           switch (item) {
             case "MONDAY":
               return "Montag";

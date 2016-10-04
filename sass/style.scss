@@ -5,6 +5,7 @@ $third-color: #326FDF;
 
 $font-gray: #c8c8c8;
 
+
 body {
   display: flex;
   min-height: 100vh;
@@ -157,6 +158,16 @@ hr.style-one {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0));
 }
 
+/* Sidenav*/
+#nav-mobile, .button-collapse {
+  display: block !important; //collapse also on large screen
+}
+@media screen and (min-width : 993px) {
+  .brand-logo {
+    margin-left: 2em;
+  }
+}
+
 /* Blackboard List */
 span.title {
   display: block;
@@ -177,3 +188,43 @@ p.text {
   font-weight: 300;
   text-align: justify;
 }
+
+/* Timetable */
+.timetable-header {
+  font-size: 1.2em;
+  font-weight:400;
+  font-family: sans-serif;
+
+  margin-top: 1rem;
+
+}
+.timetable-item {
+  font-size: 1.1em;
+}
+.content {
+  margin-top: 4rem;
+}
+
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: flex-start;
+  -webkit-align-items: flex-start;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+}
+
+.grid-cell {
+  flex: auto;
+  margin: 0.1rem 0.8rem;
+}
+@media screen and (min-width : 776px) {
+  .grid-cell {
+    flex: 1 auto;
+    -webkit-flex: 1 auto;
+  }
+}
+
+

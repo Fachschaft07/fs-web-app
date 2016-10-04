@@ -4,7 +4,7 @@
       .module('fsApp.data.service', [])
       .factory('dataFactory', [
         '$http', function ($http) {
-          var urlBase = 'http://fs.cs.hm.edu/rest/api/1/';
+          var urlBase = 'https://fs.cs.hm.edu/rest/api/1/';
           var dataFactory = {};
 
           function get(url, params) {
@@ -62,7 +62,12 @@
           }
 
           dataFactory.getLesson = function (params) {
-            var url = urlBase + "timetable/lessons"
+            var url = urlBase + "timetable/lessons";
+            return get(url, params);
+          }
+
+          dataFactory.getFSNews = function (params) {
+            var url = urlBase + "fs/news";
             return get(url, params);
           }
 

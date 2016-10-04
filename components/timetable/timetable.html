@@ -1,51 +1,88 @@
-<div ng-if="timetable.items.length">
+<div ng-if="timetable.countItems">
   <div class="relative-action-btn">
     <a class="btn-floating btn-small waves-effect waves-light orange" ui-sref="editor"><i class="material-icons">mode_edit</i></a>
   </div>
 
   <!-- Page Layout here -->
-  <div class="container">
-    <h4 class="center">Stundenplan</h4>
+  <div class="content row">
+    <div class="col s12">
+      <ul class="tabs" tabs>
+        <li class="tab col s2" ng-class="{ 'disabled' : timetable.items.mon.length == 0 }">
+          <a ng-class="{'active' : timetable.today == 1 }" href="#mon">Mo</a>
+        </li>
+        <li class="tab col s2" ng-class="{ 'disabled' : timetable.items.tue.length == 0 }">
+          <a ng-class="{ 'active' : timetable.today == 2 }" href="#tue">Di</a>
+        </li>
+        <li class="tab col s2" ng-class="{ 'disabled' : timetable.items.wed.length == 0 }">
+          <a ng-class="{ 'active' : timetable.today == 3 }" href="#wed">Mi</a>
+        </li>
+        <li class="tab col s2" ng-class="{ 'disabled' : timetable.items.thurs.length == 0 }">
+          <a ng-class="{ 'active' : timetable.today == 4 }" href="#thurs">Do</a>
+        </li>
+        <li class="tab col s2" ng-class="{ 'disabled' : timetable.items.fri.length == 0 }">
+          <a ng-class="{ 'active' : timetable.today == 5 }" href="#fri">Fr</a>
+        </li>
+      </ul>
+    </div>
 
-    <div class="col s12 flow-text">
-      <div class="card padding-card">
-        <div class="card-item">
-          <div class="card-header" ng-show="moduleMonday.length">Montag</div>
-          <div ng-repeat="item in moduleMonday = (timetable.items | filter: timetable.mon | orderBy: 'date')">
-            {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} <span
-              ng-if="item.suffix">({{item.suffix}})</span> - {{ item.teacher.name }}
+    <div class="container">
+
+      <!-- Monday -->
+      <div id="mon" class="col s12">
+        <div ng-repeat="(key, value) in timetable.items.mon | orderBy: 'date' | groupBy: 'date'">
+          <div class="timetable-header">{{ key | date:'HH:mm' }} Uhr</div>
+
+          <div class="timetable-item" ng-repeat="item in value">
+            {{ item.module.name }} <span ng-if="item.suffix">({{item.suffix}})</span>
+              - {{ item.room }} - {{ item.teacher.name }}
           </div>
         </div>
+      </div>
 
-        <div class="card-item">
-          <div class="card-header" ng-show="moduleTuesday.length">Dienstag</div>
-          <div ng-repeat="item in moduleTuesday = (timetable.items | filter: timetable.tue | orderBy: 'date')">
-            {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} <span
-              ng-if="item.suffix">({{item.suffix}})</span> - {{ item.teacher.name }}
+      <!-- Tuesday -->
+      <div id="tue" class="col s12">
+        <div ng-repeat="(key, value) in timetable.items.tue | orderBy: 'date' | groupBy: 'date'">
+          <div class="timetable-header">{{ key | date:'HH:mm' }} Uhr</div>
+
+          <div class="timetable-item" ng-repeat="item in value">
+            {{ item.module.name }} <span ng-if="item.suffix">({{item.suffix}})</span>
+            - {{ item.room }} - {{ item.teacher.name }}
           </div>
         </div>
+      </div>
 
-        <div class="card-item">
-          <div class="card-header" ng-show="moduleWednesday.length">Mittwoch</div>
-          <div ng-repeat="item in moduleWednesday = (timetable.items | filter: timetable.wed | orderBy: 'date')">
-            {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} <span
-              ng-if="item.suffix">({{item.suffix}})</span> - {{ item.teacher.name }}
+      <!-- Wednesday -->
+      <div id="wed" class="col s12">
+        <div ng-repeat="(key, value) in timetable.items.wed | orderBy: 'date' | groupBy: 'date'">
+          <div class="timetable-header">{{ key | date:'HH:mm' }} Uhr</div>
+
+          <div class="timetable-item" ng-repeat="item in value">
+            {{ item.module.name }} <span ng-if="item.suffix">({{item.suffix}})</span>
+            - {{ item.room }} - {{ item.teacher.name }}
           </div>
         </div>
+      </div>
 
-        <div class="card-item">
-          <div class="card-header" ng-show="moduleThursday.length">Donnerstag</div>
-          <div ng-repeat="item in moduleThursday = (timetable.items | filter: timetable.thurs | orderBy: 'date')">
-            {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} <span
-              ng-if="item.suffix">({{item.suffix}})</span> - {{ item.teacher.name }}
+      <!-- Thursday -->
+      <div id="thurs" class="col s12">
+        <div ng-repeat="(key, value) in timetable.items.thurs | orderBy: 'date' | groupBy: 'date'">
+          <div class="timetable-header">{{ key | date:'HH:mm' }} Uhr</div>
+
+          <div class="timetable-item" ng-repeat="item in value">
+            {{ item.module.name }} <span ng-if="item.suffix">({{item.suffix}})</span>
+            - {{ item.room }} - {{ item.teacher.name }}
           </div>
         </div>
+      </div>
 
-        <div class="card-item">
-          <div class="card-header" ng-show="moduleFriday.length">Freitag</div>
-          <div ng-repeat="item in moduleFriday = (timetable.items | filter: timetable.fri | orderBy: 'date')">
-            {{ item.hour }}:{{ item.minute != "0" ? item.minute : "00"}} Uhr - {{ item.module.name }} <span
-              ng-if="item.suffix">({{item.suffix}})</span> - {{ item.teacher.name }}
+      <!-- Friday -->
+      <div id="fri" class="col s12">
+        <div ng-repeat="(key, value) in timetable.items.fri | orderBy: 'date' | groupBy: 'date'">
+          <div class="timetable-header">{{ key | date:'HH:mm' }} Uhr</div>
+
+          <div class="timetable-item" ng-repeat="item in value">
+            {{ item.module.name }} <span ng-if="item.suffix">({{item.suffix}})</span>
+            - {{ item.room }} - {{ item.teacher.name }}
           </div>
         </div>
       </div>
@@ -55,7 +92,7 @@
 </div>
 
 <div class="container">
-  <div class="row center jumbotron" ng-if="!timetable.items.length">
+  <div class="row center jumbotron" ng-if="!timetable.countItems">
     <h4>Es wurde noch kein Stundenplan erstellt.</h4>
     <button class="btn btn-large red lighten-1 waves-effect waves-light" ui-sref="editor">Stundenplan erstellen
       <i class="material-icons right">mode_edit</i>
